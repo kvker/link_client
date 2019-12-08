@@ -19,13 +19,16 @@ export default class MainPage extends PageBase {
    * 获取列表
    * @param {number} page 页码
    */
-  async getList(page = this.page) {
+  async getList(page = this.page, search_value = this.search_value) {
     try {
       const count = 20
       const list = await this.av.read('Contact', q => {
         q.limit(count)
         q.skip(page * count)
         q.equalTo('user', this.user)
+        if(this.search_value) {
+          q.contains('username', search_value)
+        }
       })
       if(list.length < count) {
         this.no_more = true
@@ -84,14 +87,11 @@ export default class MainPage extends PageBase {
   }
 
   changeSearchInput(e) {
+    this.search_value = e.target.value
     if(e.keyCode === 13) {
       // 回车
-      this.search(e.target.value)
+      this.getList()
     }
-  }
-
-  search(value) {
-    console.log(value)
   }
 
   async confirmAdd() {
