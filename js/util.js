@@ -104,6 +104,14 @@ export default {
       return res
     }
   },
+  showLoading(selector) {
+    const loading = document.querySelector(selector || '#loading')
+    loading.style.display = 'flex'
+  },
+  hideLoading(selector) {
+    const loading = document.querySelector(selector || '#loading')
+    loading.style.display = 'none'
+  },
   // 弹出框处理
   modal,
   // 正则表达式

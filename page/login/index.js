@@ -44,7 +44,8 @@ export default class LoginPage extends PageBase {
     const password = this.qs('#password_input').value
     const md5_password = md5(password)
     // console.log(this.user_ctrl_type)
-    if(this.user_ctrl_type === 1) {
+    util.showLoading()
+      if(this.user_ctrl_type === 1) {
       try {
         // 登录
         await av.login({
@@ -74,5 +75,6 @@ export default class LoginPage extends PageBase {
       }
       this.qs('#modal').checked = false
     }
+    util.hideLoading()
   }
 }
