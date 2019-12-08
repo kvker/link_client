@@ -31,6 +31,7 @@ export default class MainPage extends PageBase {
         if(this.search_value) {
           q.contains('username', search_value)
         }
+        q.descending('updatedAt')
       })
       if(list.length < count) {
         this.no_more = true
@@ -109,21 +110,36 @@ export default class MainPage extends PageBase {
       })
       return
     }
-    console.log('confirmAdd')
+    util.showLoading()
+    this.toggleModal('#modal_checkbox_add')
+    // console.log('confirmAdd')
+    const body = {
+      username,
+      phone,
+      profession,
+      remind,
+      user: this.user,
+    }
     try {
-      await this.av.create('Contact', {
-        username,
-        phone,
-        profession,
-        remind,
-        user: this.user,
-      })
-      this.toggleModal('#modal_checkbox_add')
+      await this.av.create('Contact', body)
       this.util.modal.toggleShow({
         content: '新增成功',
       })
     } catch(error) {
       this.handleAVError(error)
     }
+    util.hideLoading()
+    this.tableAddTempOne(body)
+  }
+
+  tableAddTempOne(json) {
+    this.qs('#tbody').innerHTML += `
+      <tr>
+        <td>${json.username}</td>
+        <td>${json.phone}</td>
+        <td>${json.profession}</td>
+        <td>${json.remind}</td>
+      </tr>
+    `
   }
 }
