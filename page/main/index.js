@@ -18,14 +18,13 @@ export default class MainPage extends PageBase {
   async getList(search_value = this.search_value) {
     util.showLoading()
     try {
-      const list = await this.av.read('Contact', q => {
+      const list = (await this.av.read('Contact', q => {
         q.equalTo('user', this.user)
         if(this.search_value) {
           q.contains('username', search_value)
         }
-        q.descending('updatedAt')
         q.limit(1000)
-      })
+      })).sort((a, b) => a.get('username').localeCompare(b.get('username'), 'zh-Hans-CN', { sensitivity: 'accent' }))
       this.renderList(list)
     } catch(error) {
       this.handleAVError(error)
