@@ -104,7 +104,6 @@ export default class MainPage extends PageBase {
     const profession = this.qs('#add_profession').value
     const remind = this.qs('#add_remind').value
     if(!username || !phone || !profession || !remind) {
-      console.log(this.util.modal)
       this.util.modal.toggleShow({
         content: '请输入全部内容'
       })
@@ -129,7 +128,15 @@ export default class MainPage extends PageBase {
       this.handleAVError(error)
     }
     util.hideLoading()
+    this.cleanAddForm()
     this.tableAddTempOne(body)
+  }
+
+  cleanAddForm() {
+    this.qs('#add_username').value = ''
+    this.qs('#add_phone').value = ''
+    this.qs('#add_profession').value = ''
+    this.qs('#add_remind').value = ''
   }
 
   tableAddTempOne(json) {
