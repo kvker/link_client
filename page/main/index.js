@@ -1,4 +1,5 @@
 import PageBase from '../../js/base.js'
+import util from '../../js/util.js'
 
 export default class MainPage extends PageBase {
   constructor() {
@@ -20,6 +21,7 @@ export default class MainPage extends PageBase {
    * @param {number} page 页码
    */
   async getList(page = this.page, search_value = this.search_value) {
+    util.showLoading()
     try {
       const count = 20
       const list = await this.av.read('Contact', q => {
@@ -45,6 +47,7 @@ export default class MainPage extends PageBase {
     } catch(error) {
       this.handleAVError(error)
     }
+    util.hideLoading()
   }
 
   preList() {
