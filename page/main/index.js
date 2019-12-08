@@ -8,11 +8,6 @@ export default class MainPage extends PageBase {
     this.qs('#search_input').addEventListener('keydown', this.changeSearchInput.bind(this))
     this.qs('#add_confirm').addEventListener('click', this.confirmAdd.bind(this))
     this.qs('#logout_btn').addEventListener('click', this.logout.bind(this))
-    this.qs('#pre_btn').addEventListener('click', this.preList.bind(this))
-    this.qs('#next_btn').addEventListener('click', this.nextList.bind(this))
-    this.page = 0
-    // 还有更多吗
-    this.no_more = false
     this.getList()
   }
 
@@ -20,58 +15,22 @@ export default class MainPage extends PageBase {
    * 获取列表
    * @param {number} page 页码
    */
-  async getList(page = this.page, search_value = this.search_value) {
+  async getList(search_value = this.search_value) {
     util.showLoading()
     try {
-      const count = 20
       const list = await this.av.read('Contact', q => {
-        q.limit(count)
-        q.skip(page * count)
         q.equalTo('user', this.user)
         if(this.search_value) {
           q.contains('username', search_value)
         }
         q.descending('updatedAt')
+        q.limit(1000)
       })
-      if(list.length < count) {
-        this.no_more = true
-      }
       this.renderList(list)
-      // 如果是第一页并且没有数据, 则显示没数据嘛
-      if(!this.page && !list.length) {
-        this.qs('#page_span').innerText = '没有数据'
-      } else if(!list.length) {
-        this.qs('#page_span').innerText = `第${this.page + 1}页, 没有数据`
-      } else {
-        this.qs('#page_span').innerText = `第${this.page + 1}页`
-      }
     } catch(error) {
       this.handleAVError(error)
     }
     util.hideLoading()
-  }
-
-  preList() {
-    if(!this.page) {
-      this.util.modal.toggleShow({
-        content: '已经第一页了',
-      })
-      return
-    }
-    this.no_more = false
-    this.page -= 1
-    this.getList()
-  }
-
-  nextList() {
-    if(this.no_more) {
-      this.util.modal.toggleShow({
-        content: '没有更多了',
-      })
-      return
-    }
-    this.page += 1
-    this.getList()
   }
 
   renderList(list) {
@@ -139,14 +98,24 @@ export default class MainPage extends PageBase {
     this.qs('#add_remind').value = ''
   }
 
+  /**
+   * 新增成功临时加一条在后面
+   * @param {object}} json 数据
+   */
   tableAddTempOne(json) {
-    this.qs('#tbody').innerHTML += `
-      <tr>
-        <td>${json.username}</td>
-        <td>${json.phone}</td>
-        <td>${json.profession}</td>
-        <td>${json.remind}</td>
-      </tr>
-    `
+    const tr = document.createElement('tr')
+    let td = document.createElement('td')
+    td.innerText = json.username
+    tr.appendChild(td)
+    td = document.createElement('td')
+    td.innerText = json.phone
+    tr.appendChild(td)
+    td = document.createElement('td')
+    td.innerText = json.profession
+    tr.appendChild(td)
+    td = document.createElement('td')
+    tr.appendChild(td)
+    td.innerText = json.remind
+    this.qs('#tbody').insertBefore(tr, this.qs('#tbody').children[0])
   }
 }
