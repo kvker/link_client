@@ -11,34 +11,20 @@ export default {
    * @param {object} params 新增参数
    */
   async create(classs, params) {
-    try {
-      return await (new (AV.Object.extend(classs))).set(params).save()
-    } catch(err) {
-      wx.showToast({
-        title: err.message,
-      })
-    }
+    return await (new (AV.Object.extend(classs))).set(params).save()
   },
   /**
    * av基础获取
    * @param {string} classs 搜索类名
    * @param {function} cbForQuery 设置查询条件的中介函数
    */
-  async read(classs, cbForQuery, json) {
+  async read(classs, cbForQuery) {
     let query = new AV.Query(classs)
     // 如果需要额外设置条件，则通过传入这个函数处理
     if(cbForQuery) {
       cbForQuery(query)
     }
-    let res = await query.find()
-    try {
-      if(json) return res.map(i => i.toJSON())
-      else return res
-    } catch(err) {
-      wx.showToast({
-        title: err.message,
-      })
-    }
+    return await query.find()
   },
   /**
    * av更新对象
@@ -55,23 +41,11 @@ export default {
         obj.set(key, element)
       }
     }
-    try {
-      return await obj.save()
-    } catch(err) {
-      wx.showToast({
-        title: err.message,
-      })
-    }
+    return await obj.save()
   },
   // 批量跟新
   async saveAll(objects) {
-    try {
-      return AV.Object.saveAll(objects)
-    } catch(err) {
-      wx.showToast({
-        title: err.message,
-      })
-    }
+    return await AV.Object.saveAll(objects)
   },
   /**
    * av删除对象
@@ -80,26 +54,18 @@ export default {
    */
   async delete(classs, id) {
     let obj = AV.Object.createWithoutData(classs, id)
-    try {
-      return await obj.destroy()
-    } catch(err) {
-      wx.showToast({
-        title: err.message,
-      })
-    }
+    return await obj.destroy()
   },
   /**
    * 上传资源文件
    * @param {string} pat 文件路径
    */
-  async upload(path, json) {
-    let res = await new AV.File(path, {
+  async upload(path) {
+    return await new AV.File(path, {
       blob: {
         uri: path,
       },
     }).save()
-    if(json) return res.toJSON()
-    else return res
   },
   /**
    * 登录

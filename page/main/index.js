@@ -25,6 +25,7 @@ export default class MainPage extends PageBase {
         }
         q.limit(1000)
       })).sort((a, b) => a.get('username').localeCompare(b.get('username'), 'zh-Hans-CN', { sensitivity: 'accent' }))
+      this.qs('#list_count').innerText = `共${list.length}条`
       this.renderList(list)
     } catch(error) {
       this.handleAVError(error)
@@ -82,12 +83,13 @@ export default class MainPage extends PageBase {
       this.util.modal.toggleShow({
         content: '新增成功',
       })
+      this.tableAddTempOne(body)
     } catch(error) {
+      console.log(error)
       this.handleAVError(error)
     }
     util.hideLoading()
     this.cleanAddForm()
-    this.tableAddTempOne(body)
   }
 
   cleanAddForm() {
