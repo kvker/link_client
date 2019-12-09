@@ -1,0 +1,3 @@
+[submodule "packager"]
+	path = packager
+	url = https://gitee.com/kvker/link_packager.git
