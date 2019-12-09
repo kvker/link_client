@@ -10,14 +10,18 @@
   let loading_show = false;
   // 条目统计
   let list = [];
+  let list_count_content = "";
 
+  // 表单显示控制
   let checked = false;
+  // 是否为编辑
   let is_edit = false;
+  // 当前编辑的objectId
   let edit_id = "";
+  // 搜索框实例
   let seach_input;
-  let list_count = '';
 
-  // 新增表单
+  // 表单字段
   let username;
   let phone;
   let profession;
@@ -43,13 +47,16 @@
           sensitivity: "accent"
         })
       );
-      list_count = `共${list.length}条`;
+      list_count_content = `共${list.length}条`;
     } catch (error) {
       alert(error.rawMessage || error.message);
     }
     loading_show = false;
   }
 
+  /**
+   * 搜索框变动监听
+   */
   function changeSearchInput(e) {
     if (e.keyCode === 13) {
       // 回车
@@ -57,6 +64,9 @@
     }
   }
 
+  /**
+   * 表单确认
+   */
   async function confirmForm() {
     if (!username || !phone || !profession || !remind) {
       alert("请输入全部内容");
@@ -85,14 +95,17 @@
         alert("新增成功");
         getList();
       }
-      updateAddForm({});
+      updateForm({});
     } catch (error) {
       alert(error.rawMessage || error.message);
     }
     loading_show = false;
   }
 
-  function updateAddForm(json) {
+  /**
+   * 更新表单
+   */
+  function updateForm(json) {
     username = json.username || "";
     phone = json.phone || "";
     profession = json.profession || "";
@@ -104,13 +117,19 @@
     replace("/");
   }
 
+  /**
+   * 点击编辑
+   */
   function edit(item, idx) {
     checked = true;
     is_edit = true;
     edit_id = item.id;
-    updateAddForm(item.toJSON());
+    updateForm(item.toJSON());
   }
 
+  /**
+   * 点击删除
+   */
   async function del(item, idx) {
     if (confirm("确认删除吗?")) {
       loading_show = true;
@@ -149,7 +168,9 @@
 <nav>
   <label for="modal_add" class="button">新增</label>
   <button class="warning" on:click={logout}>退出</button>
-  <span class="list_count" style="margin-left: 100px;">{list_count}</span>
+  <span class="list_count_content" style="margin-left: 100px;">
+    {list_count_content}
+  </span>
   <div class="menu">
     <input
       placeholder="搜索"

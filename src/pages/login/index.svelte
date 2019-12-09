@@ -3,11 +3,11 @@
   import Loading from "../../components/loading/index.svelte";
   import av from "../../utils/av.js";
 
-  // 用户点击操作, 1登录2注册
-  let user_ctrl_type = 1;
+  // 表单字段
   let username = "";
   let password = "";
-  let modal_content = "";
+
+  // md5加密密码
   let md5_password = "";
 
   let loading_show = false;
@@ -31,7 +31,10 @@
     loading_show = false;
   }
 
-  function showModal() {
+  /**
+   * 检测注册数据
+   */
+  function checkRegist() {
     if (!username || !password) {
       alert(`请输入账密`);
       return;
@@ -44,6 +47,9 @@
     }
   }
 
+  /**
+   * 注册
+   */
   async function regist() {
     loading_show = true;
     try {
@@ -85,7 +91,7 @@
     placeholder="密码, 不少于6位"
     value="aa123456" />
   <button class="full" on:click={login}>登录</button>
-  <button class="full" on:click={showModal}>注册</button>
+  <button class="full" on:click={checkRegist}>注册</button>
 </div>
 
 <Loading bind:show={loading_show} />
