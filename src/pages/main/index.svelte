@@ -27,7 +27,7 @@
    * @param {number} page 页码
    */
   async function getList(search_value = "") {
-    loading_show = true
+    loading_show = true;
     try {
       list = (await av.read("Contact", q => {
         q.equalTo("user", user);
@@ -44,7 +44,7 @@
     } catch (error) {
       alert(error.rawMessage || error.message);
     }
-    loading_show = false
+    loading_show = false;
   }
 
   function changeSearchInput(e) {
@@ -67,7 +67,7 @@
       remind: remind,
       user
     };
-    loading_show = true
+    loading_show = true;
     try {
       await av.create("Contact", body);
       checked = false;
@@ -76,7 +76,7 @@
     } catch (error) {
       alert(error.rawMessage || error.message);
     }
-    loading_show = false
+    loading_show = false;
     cleanAddForm();
   }
 
@@ -90,6 +90,25 @@
   function logout() {
     AV.User.logOut();
     replace("/");
+  }
+
+  function edit(item, idx) {
+    console.log(item, idx);
+  }
+
+  async function del(item, idx) {
+    console.log(item, idx);
+    loading_show = true;
+    try {
+      await av.delete("Contact", item.id);
+      checked = false;
+      // list = [body, ...list];
+      list.splice(idx, 1)
+      list = list
+    } catch (error) {
+      alert(error.rawMessage || error.message);
+    }
+    loading_show = false;
   }
 </script>
 
@@ -105,6 +124,10 @@
 
   table {
     width: 100%;
+  }
+
+  .error {
+    margin-left: 16px;
   }
 </style>
 
@@ -124,15 +147,24 @@
       <th>号码</th>
       <th>职业</th>
       <th>备注</th>
+      <th>操作</th>
     </tr>
   </thead>
   <tbody id="tbody">
-    {#each list as item, index (index)}
+    {#each list as item, idx (idx)}
       <tr>
         <td>{item.get ? item.get('username') : item.username}</td>
         <td>{item.get ? item.get('phone') : item.phone}</td>
         <td>{item.get ? item.get('profession') : item.profession}</td>
         <td>{item.get ? item.get('remind') : item.remind}</td>
+        <td>
+          <button class="small_btn" on:click={e => edit(item, idx)}>
+            编辑
+          </button>
+          <button class="small_btn error" on:click={e => del(item, idx)}>
+            删除
+          </button>
+        </td>
       </tr>
     {/each}
   </tbody>
