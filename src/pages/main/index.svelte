@@ -13,6 +13,8 @@
   let list = [];
 
   let checked = false;
+  let is_edit = false;
+  let edit_id = "";
 
   // 新增表单
   let username;
@@ -54,7 +56,7 @@
     }
   }
 
-  async function confirmAdd() {
+  async function confirmForm() {
     if (!username || !phone || !profession || !remind) {
       alert("请输入全部内容");
       return;
@@ -69,22 +71,31 @@
     };
     loading_show = true;
     try {
-      await av.create("Contact", body);
-      checked = false;
-      alert("新增成功");
-      list = [body, ...list];
+      if (is_edit) {
+        // 编辑
+        await av.update("Contact", edit_id, body);
+        checked = false;
+        alert("更新成功");
+        getList();
+      } else {
+        // 新增
+        await av.create("Contact", body);
+        checked = false;
+        alert("新增成功");
+        getList();
+      }
+      updateAddForm({});
     } catch (error) {
       alert(error.rawMessage || error.message);
     }
     loading_show = false;
-    cleanAddForm();
   }
 
-  function cleanAddForm() {
-    username = "";
-    phone = "";
-    profession = "";
-    remind = "";
+  function updateAddForm(json) {
+    username = json.username || "";
+    phone = json.phone || "";
+    profession = json.profession || "";
+    remind = json.remind || "";
   }
 
   function logout() {
@@ -93,22 +104,25 @@
   }
 
   function edit(item, idx) {
-    console.log(item, idx);
+    checked = true;
+    is_edit = true;
+    edit_id = item.id;
+    updateAddForm(item.toJSON());
   }
 
   async function del(item, idx) {
-    console.log(item, idx);
-    loading_show = true;
-    try {
-      await av.delete("Contact", item.id);
-      checked = false;
-      // list = [body, ...list];
-      list.splice(idx, 1)
-      list = list
-    } catch (error) {
-      alert(error.rawMessage || error.message);
+    if (confirm("确认删除吗?")) {
+      loading_show = true;
+      try {
+        await av.delete("Contact", item.id);
+        checked = false;
+        list.splice(idx, 1);
+        list = list;
+      } catch (error) {
+        alert(error.rawMessage || error.message);
+      }
+      loading_show = false;
     }
-    loading_show = false;
   }
 </script>
 
@@ -153,10 +167,10 @@
   <tbody id="tbody">
     {#each list as item, idx (idx)}
       <tr>
-        <td>{item.get ? item.get('username') : item.username}</td>
-        <td>{item.get ? item.get('phone') : item.phone}</td>
-        <td>{item.get ? item.get('profession') : item.profession}</td>
-        <td>{item.get ? item.get('remind') : item.remind}</td>
+        <td>{item.get('username')}</td>
+        <td>{item.get('phone')}</td>
+        <td>{item.get('profession')}</td>
+        <td>{item.get('remind')}</td>
         <td>
           <button class="small_btn" on:click={e => edit(item, idx)}>
             编辑
@@ -175,7 +189,7 @@
   <label for="modal_add" class="overlay" />
   <article>
     <header>
-      <h3>新增</h3>
+      <h3>{is_edit ? '编辑' : '新增'}</h3>
       <label for="modal_add" class="close">&times;</label>
     </header>
     <section class="content flex one center">
@@ -197,7 +211,7 @@
       <input bind:value={remind} class="half" type="text" placeholder="备注" />
     </section>
     <footer>
-      <label class="button" on:click={confirmAdd}>确定</label>
+      <label class="button" on:click={confirmForm}>确定</label>
       <label for="modal_add" class="button dangerous">取消</label>
     </footer>
   </article>
