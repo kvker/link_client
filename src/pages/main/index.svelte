@@ -9,12 +9,13 @@
   }
   let loading_show = false;
   // 条目统计
-  let textContent = "";
   let list = [];
 
   let checked = false;
   let is_edit = false;
   let edit_id = "";
+  let seach_input;
+  let list_count = '';
 
   // 新增表单
   let username;
@@ -42,7 +43,7 @@
           sensitivity: "accent"
         })
       );
-      textContent = `共${list.length}条`;
+      list_count = `共${list.length}条`;
     } catch (error) {
       alert(error.rawMessage || error.message);
     }
@@ -148,9 +149,12 @@
 <nav>
   <label for="modal_add" class="button">新增</label>
   <button class="warning" on:click={logout}>退出</button>
-  <span id="list_count" style="margin-left: 100px;" />
+  <span class="list_count" style="margin-left: 100px;">{list_count}</span>
   <div class="menu">
-    <input placeholder="搜索" on:keypress={changeSearchInput} />
+    <input
+      placeholder="搜索"
+      on:keypress={changeSearchInput}
+      bind:this={seach_input} />
   </div>
 </nav>
 
