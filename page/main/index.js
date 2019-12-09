@@ -4,7 +4,7 @@ import util from '../../js/util.js'
 export default class MainPage extends PageBase {
   constructor() {
     super('#main_temp')
-    this.qs('#username').innerText = this.user.get('username')
+    this.qs('#username').textContent = this.user.get('username')
     this.qs('#search_input').addEventListener('keydown', this.changeSearchInput.bind(this))
     this.qs('#add_confirm').addEventListener('click', this.confirmAdd.bind(this))
     this.qs('#logout_btn').addEventListener('click', this.logout.bind(this))
@@ -25,7 +25,7 @@ export default class MainPage extends PageBase {
         }
         q.limit(1000)
       })).sort((a, b) => a.get('username').localeCompare(b.get('username'), 'zh-Hans-CN', { sensitivity: 'accent' }))
-      this.qs('#list_count').innerText = `共${list.length}条`
+      this.qs('#list_count').textContent = `共${list.length}条`
       this.renderList(list)
     } catch(error) {
       this.handleAVError(error)
@@ -106,17 +106,17 @@ export default class MainPage extends PageBase {
   tableAddTempOne(json) {
     const tr = document.createElement('tr')
     let td = document.createElement('td')
-    td.innerText = json.username
+    td.textContent = json.username
     tr.appendChild(td)
     td = document.createElement('td')
-    td.innerText = json.phone
+    td.textContent = json.phone
     tr.appendChild(td)
     td = document.createElement('td')
-    td.innerText = json.profession
+    td.textContent = json.profession
     tr.appendChild(td)
     td = document.createElement('td')
     tr.appendChild(td)
-    td.innerText = json.remind
+    td.textContent = json.remind
     this.qs('#tbody').insertBefore(tr, this.qs('#tbody').children[0])
   }
 }

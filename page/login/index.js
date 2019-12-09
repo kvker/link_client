@@ -34,7 +34,7 @@ export default class LoginPage extends PageBase {
       this.loginOrRegist()
     } else {
       // 注册弹这个
-      this.qs('#modal_content').innerText = `注册账密为: ${username}, ${password}, 请确认`
+      this.qs('#modal_content').textContent = `注册账密为: ${username}, ${password}, 请确认`
       this.qs('#modal').checked = true
     }
   }
