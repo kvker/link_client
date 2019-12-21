@@ -95,7 +95,7 @@
         alert("新增成功");
         getList();
       }
-      updateForm({});
+      updateForm();
     } catch (error) {
       alert(error.rawMessage || error.message);
     }
@@ -105,7 +105,7 @@
   /**
    * 更新表单
    */
-  function updateForm(json) {
+  function updateForm(json = {}) {
     username = json.username || "";
     phone = json.phone || "";
     profession = json.profession || "";
@@ -115,6 +115,15 @@
   function logout() {
     AV.User.logOut();
     replace("/");
+  }
+
+  /**
+   * 点击新增
+   */
+  function add(item, idx) {
+    checked = true;
+    is_edit = false;
+    updateForm();
   }
 
   /**
@@ -166,7 +175,7 @@
 </style>
 
 <nav>
-  <label for="modal_add" class="button">新增</label>
+  <button class="button" on:click={e => add()}>新增</button>
   <button class="warning" on:click={logout}>退出</button>
   <span class="list_count_content" style="margin-left: 100px;">
     {list_count_content}
