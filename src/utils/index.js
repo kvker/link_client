@@ -1,6 +1,7 @@
 import av from './js/av.js'
 import util from './js/util.js'
 import AV from 'leancloud-storage.js'
+
 const user = AV.User.current()
 if(user) {
   util.route.main()
