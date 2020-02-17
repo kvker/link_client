@@ -3,6 +3,12 @@
 
 ## Svelte
 
+测试账号
+
+kk
+
+aa123456
+
 [Svelte官网](svelte.dv)
 
 好用, 无他.
