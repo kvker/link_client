@@ -1995,7 +1995,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (205:4) {#each list as item, idx (idx)}
+    // (199:4) {#each list as item, idx (idx)}
     function create_each_block(key_1, ctx) {
     	let tr;
     	let td0;
@@ -2055,21 +2055,21 @@ var app = (function () {
     			button1 = element("button");
     			button1.textContent = "删除";
     			t11 = space();
-    			add_location(td0, file$2, 206, 8, 4104);
-    			add_location(td1, file$2, 207, 8, 4144);
-    			add_location(td2, file$2, 208, 8, 4181);
-    			add_location(td3, file$2, 209, 8, 4223);
+    			add_location(td0, file$2, 200, 8, 4041);
+    			add_location(td1, file$2, 201, 8, 4081);
+    			add_location(td2, file$2, 202, 8, 4118);
+    			add_location(td3, file$2, 203, 8, 4160);
     			attr_dev(button0, "type", "button");
     			attr_dev(button0, "class", "btn btn-primary");
     			attr_dev(button0, "data-toggle", "modal");
     			attr_dev(button0, "data-target", "#edit_modal");
-    			add_location(button0, file$2, 212, 12, 4312);
+    			add_location(button0, file$2, 206, 12, 4249);
     			attr_dev(button1, "class", "btn btn-danger");
-    			add_location(button1, file$2, 220, 12, 4561);
+    			add_location(button1, file$2, 214, 12, 4498);
     			attr_dev(div, "class", "btn-group");
-    			add_location(div, file$2, 211, 10, 4276);
-    			add_location(td4, file$2, 210, 8, 4261);
-    			add_location(tr, file$2, 205, 6, 4091);
+    			add_location(div, file$2, 205, 10, 4213);
+    			add_location(td4, file$2, 204, 8, 4198);
+    			add_location(tr, file$2, 199, 6, 4028);
     			this.first = tr;
     		},
     		m: function mount(target, anchor, remount) {
@@ -2116,7 +2116,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(205:4) {#each list as item, idx (idx)}",
+    		source: "(199:4) {#each list as item, idx (idx)}",
     		ctx
     	});
 
@@ -2272,70 +2272,70 @@ var app = (function () {
     			attr_dev(button0, "class", "col-1 btn btn-primary");
     			attr_dev(button0, "data-toggle", "modal");
     			attr_dev(button0, "data-target", "#edit_modal");
-    			add_location(button0, file$2, 169, 2, 3350);
+    			add_location(button0, file$2, 163, 2, 3287);
     			attr_dev(button1, "class", "col-1 btn btn-warning");
     			set_style(button1, "margin-left", "8px");
-    			add_location(button1, file$2, 177, 2, 3508);
+    			add_location(button1, file$2, 171, 2, 3445);
     			attr_dev(span, "class", "col-2 row justify-content-center align-items-center");
-    			add_location(span, file$2, 183, 2, 3624);
+    			add_location(span, file$2, 177, 2, 3561);
     			attr_dev(input0, "class", "col-2 form-control");
     			attr_dev(input0, "placeholder", "搜索");
-    			add_location(input0, file$2, 186, 2, 3728);
+    			add_location(input0, file$2, 180, 2, 3665);
     			attr_dev(nav, "class", "row");
-    			add_location(nav, file$2, 168, 0, 3330);
-    			add_location(th0, file$2, 196, 6, 3923);
-    			add_location(th1, file$2, 197, 6, 3941);
-    			add_location(th2, file$2, 198, 6, 3959);
-    			add_location(th3, file$2, 199, 6, 3977);
-    			add_location(th4, file$2, 200, 6, 3995);
-    			add_location(tr, file$2, 195, 4, 3912);
-    			add_location(thead, file$2, 194, 2, 3900);
+    			add_location(nav, file$2, 162, 0, 3267);
+    			add_location(th0, file$2, 190, 6, 3860);
+    			add_location(th1, file$2, 191, 6, 3878);
+    			add_location(th2, file$2, 192, 6, 3896);
+    			add_location(th3, file$2, 193, 6, 3914);
+    			add_location(th4, file$2, 194, 6, 3932);
+    			add_location(tr, file$2, 189, 4, 3849);
+    			add_location(thead, file$2, 188, 2, 3837);
     			attr_dev(tbody, "id", "tbody");
-    			add_location(tbody, file$2, 203, 2, 4030);
+    			add_location(tbody, file$2, 197, 2, 3967);
     			attr_dev(table, "class", "table table-striped");
-    			add_location(table, file$2, 193, 0, 3862);
+    			add_location(table, file$2, 187, 0, 3799);
     			attr_dev(h4, "class", "modal-title");
-    			add_location(h4, file$2, 236, 8, 4916);
+    			add_location(h4, file$2, 230, 8, 4853);
     			attr_dev(button2, "type", "button");
     			attr_dev(button2, "class", "close");
     			attr_dev(button2, "data-dismiss", "modal");
-    			add_location(button2, file$2, 237, 8, 4977);
+    			add_location(button2, file$2, 231, 8, 4914);
     			attr_dev(div0, "class", "modal-header");
-    			add_location(div0, file$2, 235, 6, 4881);
+    			add_location(div0, file$2, 229, 6, 4818);
     			attr_dev(input1, "class", "form-control col-8 offset-2");
     			set_style(input1, "margin-top", "8px");
     			attr_dev(input1, "placeholder", "姓名");
-    			add_location(input1, file$2, 244, 8, 5149);
+    			add_location(input1, file$2, 238, 8, 5086);
     			attr_dev(input2, "class", "form-control col-8 offset-2");
     			set_style(input2, "margin-top", "8px");
     			attr_dev(input2, "placeholder", "号码");
-    			add_location(input2, file$2, 249, 8, 5307);
+    			add_location(input2, file$2, 243, 8, 5244);
     			attr_dev(input3, "class", "form-control col-8 offset-2");
     			set_style(input3, "margin-top", "8px");
     			attr_dev(input3, "placeholder", "职业");
-    			add_location(input3, file$2, 254, 8, 5462);
+    			add_location(input3, file$2, 248, 8, 5399);
     			attr_dev(input4, "class", "form-control col-8 offset-2");
     			set_style(input4, "margin-top", "8px");
     			attr_dev(input4, "placeholder", "备注");
-    			add_location(input4, file$2, 259, 8, 5622);
+    			add_location(input4, file$2, 253, 8, 5559);
     			attr_dev(div1, "class", "modal-body row");
-    			add_location(div1, file$2, 243, 6, 5112);
+    			add_location(div1, file$2, 237, 6, 5049);
     			attr_dev(button3, "type", "button");
     			attr_dev(button3, "class", "btn btn-primary");
-    			add_location(button3, file$2, 268, 8, 5846);
+    			add_location(button3, file$2, 262, 8, 5783);
     			attr_dev(button4, "type", "button");
     			attr_dev(button4, "class", "btn btn-secondary");
     			attr_dev(button4, "data-dismiss", "modal");
-    			add_location(button4, file$2, 274, 8, 5994);
+    			add_location(button4, file$2, 268, 8, 5931);
     			attr_dev(div2, "class", "modal-footer");
-    			add_location(div2, file$2, 267, 6, 5811);
+    			add_location(div2, file$2, 261, 6, 5748);
     			attr_dev(div3, "class", "modal-content");
-    			add_location(div3, file$2, 233, 4, 4826);
+    			add_location(div3, file$2, 227, 4, 4763);
     			attr_dev(div4, "class", "modal-dialog");
-    			add_location(div4, file$2, 232, 2, 4795);
+    			add_location(div4, file$2, 226, 2, 4732);
     			attr_dev(div5, "class", "modal fade");
     			attr_dev(div5, "id", "edit_modal");
-    			add_location(div5, file$2, 231, 0, 4752);
+    			add_location(div5, file$2, 225, 0, 4689);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2514,38 +2514,27 @@ var app = (function () {
     		replace("/");
     	}
 
-    	let loading_show = false;
+    	let loading_show = false,
+    		// 条目统计
+    		list = [],
+    		list_count_content = "",
+    		// 表单显示控制
+    		checked = false,
+    		// 是否为编辑
+    		is_edit = false,
+    		// 当前编辑的objectId
+    		edit_id = "",
+    		// 搜索框实例
+    		seach_input,
+    		// 表单字段
+    		username,
+    		phone,
+    		profession,
+    		remind,
+    		btn_modal_close;
 
-    	// 条目统计
-    	let list = [];
-
-    	let list_count_content = "";
-
-    	// 表单显示控制
-    	let checked = false;
-
-    	// 是否为编辑
-    	let is_edit = false;
-
-    	// 当前编辑的objectId
-    	let edit_id = "";
-
-    	// 搜索框实例
-    	let seach_input;
-
-    	// 表单字段
-    	let username;
-
-    	let phone;
-    	let profession;
-    	let remind;
-    	let btn_modal_close;
     	getList();
 
-    	/**
-     * 获取列表
-     * @param {number} page 页码
-     */
     	async function getList(search_value = "") {
     		$$invalidate(0, loading_show = true);
 

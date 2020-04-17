@@ -7,33 +7,27 @@
   if (!user) {
     replace("/");
   }
-  let loading_show = false;
-  // 条目统计
-  let list = [];
-  let list_count_content = "";
-
-  // 表单显示控制
-  let checked = false;
-  // 是否为编辑
-  let is_edit = false;
-  // 当前编辑的objectId
-  let edit_id = "";
-  // 搜索框实例
-  let seach_input;
-
-  // 表单字段
-  let username;
-  let phone;
-  let profession;
-  let remind;
-  let btn_modal_close;
+  let loading_show = false,
+    // 条目统计
+    list = [],
+    list_count_content = "",
+    // 表单显示控制
+    checked = false,
+    // 是否为编辑
+    is_edit = false,
+    // 当前编辑的objectId
+    edit_id = "",
+    // 搜索框实例
+    seach_input,
+    // 表单字段
+    username,
+    phone,
+    profession,
+    remind,
+    btn_modal_close;
 
   getList();
 
-  /**
-   * 获取列表
-   * @param {number} page 页码
-   */
   async function getList(search_value = "") {
     loading_show = true;
     try {
