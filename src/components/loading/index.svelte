@@ -7,82 +7,101 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100vh;
-    justify-content: center;
     align-items: center;
-    z-index: 999;
-    background: #0003;
+    justify-content: center;
+    margin: 0 0 2em;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    vertical-align: top;
+    background-color: rgba(0, 0, 0, 0.2);
   }
-
-  .spinner {
-    animation: rotator 1.4s linear infinite;
-  }
-
-  @keyframes rotator {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(270deg);
-    }
-  }
-
-  .path {
-    stroke-dasharray: 187;
-    stroke-dashoffset: 0;
-    transform-origin: center;
-    animation: dash 1.4s ease-in-out infinite,
-      colors (1.4s * 4) ease-in-out infinite;
-  }
-
-  @keyframes colors {
-    0% {
-      stroke: #4285f4;
-    }
-    25% {
-      stroke: #de3e35;
-    }
-    50% {
-      stroke: #f7c223;
-    }
-    75% {
-      stroke: #1b9a59;
-    }
-    100% {
-      stroke: #4285f4;
-    }
-  }
-
-  @keyframes dash {
-    0% {
-      stroke-dashoffset: 187;
-    }
-    50% {
-      stroke-dashoffset: 187/4;
-      transform: rotate(135deg);
-    }
-    100% {
-      stroke-dashoffset: 187;
-      transform: rotate(450deg);
-    }
+  svg rect {
+    fill: #ff6700;
   }
 </style>
 
 <div id="loading" style="display: {show ? 'flex' : 'none'};">
   <svg
-    class="spinner"
-    width="65px"
-    height="65px"
-    viewBox="0 0 66 66"
-    xmlns="http://www.w3.org/2000/svg">
-    <circle
-      class="path"
-      fill="none"
-      stroke-width="6"
-      stroke-linecap="round"
-      cx="33"
-      cy="33"
-      r="30" />
+    version="1.1"
+    id="Layer_1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    x="0px"
+    y="0px"
+    width="24px"
+    height="30px"
+    viewBox="0 0 24 30"
+    style="enable-background:new 0 0 50 50;"
+    xml:space="preserve">
+    <rect x="0" y="10" width="4" height="10" fill="#333" opacity="0.2">
+      <animate
+        attributeName="opacity"
+        attributeType="XML"
+        values="0.2; 1; .2"
+        begin="0s"
+        dur="0.6s"
+        repeatCount="indefinite" />
+      <animate
+        attributeName="height"
+        attributeType="XML"
+        values="10; 20; 10"
+        begin="0s"
+        dur="0.6s"
+        repeatCount="indefinite" />
+      <animate
+        attributeName="y"
+        attributeType="XML"
+        values="10; 5; 10"
+        begin="0s"
+        dur="0.6s"
+        repeatCount="indefinite" />
+    </rect>
+    <rect x="8" y="10" width="4" height="10" fill="#333" opacity="0.2">
+      <animate
+        attributeName="opacity"
+        attributeType="XML"
+        values="0.2; 1; .2"
+        begin="0.15s"
+        dur="0.6s"
+        repeatCount="indefinite" />
+      <animate
+        attributeName="height"
+        attributeType="XML"
+        values="10; 20; 10"
+        begin="0.15s"
+        dur="0.6s"
+        repeatCount="indefinite" />
+      <animate
+        attributeName="y"
+        attributeType="XML"
+        values="10; 5; 10"
+        begin="0.15s"
+        dur="0.6s"
+        repeatCount="indefinite" />
+    </rect>
+    <rect x="16" y="10" width="4" height="10" fill="#333" opacity="0.2">
+      <animate
+        attributeName="opacity"
+        attributeType="XML"
+        values="0.2; 1; .2"
+        begin="0.3s"
+        dur="0.6s"
+        repeatCount="indefinite" />
+      <animate
+        attributeName="height"
+        attributeType="XML"
+        values="10; 20; 10"
+        begin="0.3s"
+        dur="0.6s"
+        repeatCount="indefinite" />
+      <animate
+        attributeName="y"
+        attributeType="XML"
+        values="10; 5; 10"
+        begin="0.3s"
+        dur="0.6s"
+        repeatCount="indefinite" />
+    </rect>
   </svg>
 </div>

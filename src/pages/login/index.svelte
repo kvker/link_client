@@ -16,6 +16,10 @@
   }
 
   async function login() {
+    if(username.length < 2 || !md5_password) {
+      alert('请输入合法账密')
+      return
+    }
     loading_show = true;
     try {
       // 登录
@@ -84,12 +88,8 @@
 <div id="login_page" class="half">
   <h1>林克</h1>
   <!-- username, password -->
-  <input bind:value={username} type="text" placeholder="用户名" value="kk" />
-  <input
-    bind:value={password}
-    type="password"
-    placeholder="密码, 不少于6位"
-    value="aa123456" />
+  <input bind:value={username} type="text" placeholder="用户名" />
+  <input bind:value={password} type="password" placeholder="密码, 不少于6位" />
   <button class="full" on:click={login}>登录</button>
   <button class="full" on:click={checkRegist}>注册</button>
 </div>
