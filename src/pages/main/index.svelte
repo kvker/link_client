@@ -49,24 +49,11 @@
     loading_show = false;
   }
 
-  /**
-   * 搜索框变动监听
-   */
   function changeSearchInput(e) {
     if (e.keyCode === 13) {
       // 回车
       getList(e.target.value);
     }
-  }
-
-  /**
-   * 更新表单
-   */
-  function updateForm(json = {}) {
-    username = json.username || "";
-    phone = json.phone || "";
-    profession = json.profession || "";
-    remind = json.remind || "";
   }
 
   function logout() {

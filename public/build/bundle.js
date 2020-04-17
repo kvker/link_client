@@ -1990,28 +1990,28 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[30] = list[i];
-    	child_ctx[32] = i;
+    	child_ctx[29] = list[i];
+    	child_ctx[31] = i;
     	return child_ctx;
     }
 
-    // (199:4) {#each list as item, idx (idx)}
+    // (186:4) {#each list as item, idx (idx)}
     function create_each_block(key_1, ctx) {
     	let tr;
     	let td0;
-    	let t0_value = /*item*/ ctx[30].get("username") + "";
+    	let t0_value = /*item*/ ctx[29].get("username") + "";
     	let t0;
     	let t1;
     	let td1;
-    	let t2_value = /*item*/ ctx[30].get("phone") + "";
+    	let t2_value = /*item*/ ctx[29].get("phone") + "";
     	let t2;
     	let t3;
     	let td2;
-    	let t4_value = /*item*/ ctx[30].get("profession") + "";
+    	let t4_value = /*item*/ ctx[29].get("profession") + "";
     	let t4;
     	let t5;
     	let td3;
-    	let t6_value = /*item*/ ctx[30].get("remind") + "";
+    	let t6_value = /*item*/ ctx[29].get("remind") + "";
     	let t6;
     	let t7;
     	let td4;
@@ -2023,11 +2023,11 @@ var app = (function () {
     	let dispose;
 
     	function click_handler(...args) {
-    		return /*click_handler*/ ctx[22](/*item*/ ctx[30], /*idx*/ ctx[32], ...args);
+    		return /*click_handler*/ ctx[21](/*item*/ ctx[29], /*idx*/ ctx[31], ...args);
     	}
 
     	function click_handler_1(...args) {
-    		return /*click_handler_1*/ ctx[23](/*item*/ ctx[30], /*idx*/ ctx[32], ...args);
+    		return /*click_handler_1*/ ctx[22](/*item*/ ctx[29], /*idx*/ ctx[31], ...args);
     	}
 
     	const block = {
@@ -2055,21 +2055,21 @@ var app = (function () {
     			button1 = element("button");
     			button1.textContent = "删除";
     			t11 = space();
-    			add_location(td0, file$2, 200, 8, 4041);
-    			add_location(td1, file$2, 201, 8, 4081);
-    			add_location(td2, file$2, 202, 8, 4118);
-    			add_location(td3, file$2, 203, 8, 4160);
+    			add_location(td0, file$2, 187, 8, 3816);
+    			add_location(td1, file$2, 188, 8, 3856);
+    			add_location(td2, file$2, 189, 8, 3893);
+    			add_location(td3, file$2, 190, 8, 3935);
     			attr_dev(button0, "type", "button");
     			attr_dev(button0, "class", "btn btn-primary");
     			attr_dev(button0, "data-toggle", "modal");
     			attr_dev(button0, "data-target", "#edit_modal");
-    			add_location(button0, file$2, 206, 12, 4249);
+    			add_location(button0, file$2, 193, 12, 4024);
     			attr_dev(button1, "class", "btn btn-danger");
-    			add_location(button1, file$2, 214, 12, 4498);
+    			add_location(button1, file$2, 201, 12, 4273);
     			attr_dev(div, "class", "btn-group");
-    			add_location(div, file$2, 205, 10, 4213);
-    			add_location(td4, file$2, 204, 8, 4198);
-    			add_location(tr, file$2, 199, 6, 4028);
+    			add_location(div, file$2, 192, 10, 3988);
+    			add_location(td4, file$2, 191, 8, 3973);
+    			add_location(tr, file$2, 186, 6, 3803);
     			this.first = tr;
     		},
     		m: function mount(target, anchor, remount) {
@@ -2101,10 +2101,10 @@ var app = (function () {
     		},
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
-    			if (dirty[0] & /*list*/ 2 && t0_value !== (t0_value = /*item*/ ctx[30].get("username") + "")) set_data_dev(t0, t0_value);
-    			if (dirty[0] & /*list*/ 2 && t2_value !== (t2_value = /*item*/ ctx[30].get("phone") + "")) set_data_dev(t2, t2_value);
-    			if (dirty[0] & /*list*/ 2 && t4_value !== (t4_value = /*item*/ ctx[30].get("profession") + "")) set_data_dev(t4, t4_value);
-    			if (dirty[0] & /*list*/ 2 && t6_value !== (t6_value = /*item*/ ctx[30].get("remind") + "")) set_data_dev(t6, t6_value);
+    			if (dirty[0] & /*list*/ 2 && t0_value !== (t0_value = /*item*/ ctx[29].get("username") + "")) set_data_dev(t0, t0_value);
+    			if (dirty[0] & /*list*/ 2 && t2_value !== (t2_value = /*item*/ ctx[29].get("phone") + "")) set_data_dev(t2, t2_value);
+    			if (dirty[0] & /*list*/ 2 && t4_value !== (t4_value = /*item*/ ctx[29].get("profession") + "")) set_data_dev(t4, t4_value);
+    			if (dirty[0] & /*list*/ 2 && t6_value !== (t6_value = /*item*/ ctx[29].get("remind") + "")) set_data_dev(t6, t6_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(tr);
@@ -2116,7 +2116,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(199:4) {#each list as item, idx (idx)}",
+    		source: "(186:4) {#each list as item, idx (idx)}",
     		ctx
     	});
 
@@ -2180,7 +2180,7 @@ var app = (function () {
     	let dispose;
     	let each_value = /*list*/ ctx[1];
     	validate_each_argument(each_value);
-    	const get_key = ctx => /*idx*/ ctx[32];
+    	const get_key = ctx => /*idx*/ ctx[31];
     	validate_each_keys(ctx, each_value, get_each_context, get_key);
 
     	for (let i = 0; i < each_value.length; i += 1) {
@@ -2190,7 +2190,7 @@ var app = (function () {
     	}
 
     	function loading_show_binding(value) {
-    		/*loading_show_binding*/ ctx[29].call(null, value);
+    		/*loading_show_binding*/ ctx[28].call(null, value);
     	}
 
     	let loading_props = {};
@@ -2272,70 +2272,70 @@ var app = (function () {
     			attr_dev(button0, "class", "col-1 btn btn-primary");
     			attr_dev(button0, "data-toggle", "modal");
     			attr_dev(button0, "data-target", "#edit_modal");
-    			add_location(button0, file$2, 163, 2, 3287);
+    			add_location(button0, file$2, 150, 2, 3062);
     			attr_dev(button1, "class", "col-1 btn btn-warning");
     			set_style(button1, "margin-left", "8px");
-    			add_location(button1, file$2, 171, 2, 3445);
+    			add_location(button1, file$2, 158, 2, 3220);
     			attr_dev(span, "class", "col-2 row justify-content-center align-items-center");
-    			add_location(span, file$2, 177, 2, 3561);
+    			add_location(span, file$2, 164, 2, 3336);
     			attr_dev(input0, "class", "col-2 form-control");
     			attr_dev(input0, "placeholder", "搜索");
-    			add_location(input0, file$2, 180, 2, 3665);
+    			add_location(input0, file$2, 167, 2, 3440);
     			attr_dev(nav, "class", "row");
-    			add_location(nav, file$2, 162, 0, 3267);
-    			add_location(th0, file$2, 190, 6, 3860);
-    			add_location(th1, file$2, 191, 6, 3878);
-    			add_location(th2, file$2, 192, 6, 3896);
-    			add_location(th3, file$2, 193, 6, 3914);
-    			add_location(th4, file$2, 194, 6, 3932);
-    			add_location(tr, file$2, 189, 4, 3849);
-    			add_location(thead, file$2, 188, 2, 3837);
+    			add_location(nav, file$2, 149, 0, 3042);
+    			add_location(th0, file$2, 177, 6, 3635);
+    			add_location(th1, file$2, 178, 6, 3653);
+    			add_location(th2, file$2, 179, 6, 3671);
+    			add_location(th3, file$2, 180, 6, 3689);
+    			add_location(th4, file$2, 181, 6, 3707);
+    			add_location(tr, file$2, 176, 4, 3624);
+    			add_location(thead, file$2, 175, 2, 3612);
     			attr_dev(tbody, "id", "tbody");
-    			add_location(tbody, file$2, 197, 2, 3967);
+    			add_location(tbody, file$2, 184, 2, 3742);
     			attr_dev(table, "class", "table table-striped");
-    			add_location(table, file$2, 187, 0, 3799);
+    			add_location(table, file$2, 174, 0, 3574);
     			attr_dev(h4, "class", "modal-title");
-    			add_location(h4, file$2, 230, 8, 4853);
+    			add_location(h4, file$2, 217, 8, 4628);
     			attr_dev(button2, "type", "button");
     			attr_dev(button2, "class", "close");
     			attr_dev(button2, "data-dismiss", "modal");
-    			add_location(button2, file$2, 231, 8, 4914);
+    			add_location(button2, file$2, 218, 8, 4689);
     			attr_dev(div0, "class", "modal-header");
-    			add_location(div0, file$2, 229, 6, 4818);
+    			add_location(div0, file$2, 216, 6, 4593);
     			attr_dev(input1, "class", "form-control col-8 offset-2");
     			set_style(input1, "margin-top", "8px");
     			attr_dev(input1, "placeholder", "姓名");
-    			add_location(input1, file$2, 238, 8, 5086);
+    			add_location(input1, file$2, 225, 8, 4861);
     			attr_dev(input2, "class", "form-control col-8 offset-2");
     			set_style(input2, "margin-top", "8px");
     			attr_dev(input2, "placeholder", "号码");
-    			add_location(input2, file$2, 243, 8, 5244);
+    			add_location(input2, file$2, 230, 8, 5019);
     			attr_dev(input3, "class", "form-control col-8 offset-2");
     			set_style(input3, "margin-top", "8px");
     			attr_dev(input3, "placeholder", "职业");
-    			add_location(input3, file$2, 248, 8, 5399);
+    			add_location(input3, file$2, 235, 8, 5174);
     			attr_dev(input4, "class", "form-control col-8 offset-2");
     			set_style(input4, "margin-top", "8px");
     			attr_dev(input4, "placeholder", "备注");
-    			add_location(input4, file$2, 253, 8, 5559);
+    			add_location(input4, file$2, 240, 8, 5334);
     			attr_dev(div1, "class", "modal-body row");
-    			add_location(div1, file$2, 237, 6, 5049);
+    			add_location(div1, file$2, 224, 6, 4824);
     			attr_dev(button3, "type", "button");
     			attr_dev(button3, "class", "btn btn-primary");
-    			add_location(button3, file$2, 262, 8, 5783);
+    			add_location(button3, file$2, 249, 8, 5558);
     			attr_dev(button4, "type", "button");
     			attr_dev(button4, "class", "btn btn-secondary");
     			attr_dev(button4, "data-dismiss", "modal");
-    			add_location(button4, file$2, 268, 8, 5931);
+    			add_location(button4, file$2, 255, 8, 5706);
     			attr_dev(div2, "class", "modal-footer");
-    			add_location(div2, file$2, 261, 6, 5748);
+    			add_location(div2, file$2, 248, 6, 5523);
     			attr_dev(div3, "class", "modal-content");
-    			add_location(div3, file$2, 227, 4, 4763);
+    			add_location(div3, file$2, 214, 4, 4538);
     			attr_dev(div4, "class", "modal-dialog");
-    			add_location(div4, file$2, 226, 2, 4732);
+    			add_location(div4, file$2, 213, 2, 4507);
     			attr_dev(div5, "class", "modal fade");
     			attr_dev(div5, "id", "edit_modal");
-    			add_location(div5, file$2, 225, 0, 4689);
+    			add_location(div5, file$2, 212, 0, 4464);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2350,7 +2350,7 @@ var app = (function () {
     			append_dev(span, t4);
     			append_dev(nav, t5);
     			append_dev(nav, input0);
-    			/*input0_binding*/ ctx[21](input0);
+    			/*input0_binding*/ ctx[20](input0);
     			insert_dev(target, t6, anchor);
     			insert_dev(target, table, anchor);
     			append_dev(table, thead);
@@ -2398,7 +2398,7 @@ var app = (function () {
     			append_dev(div2, button3);
     			append_dev(div2, t27);
     			append_dev(div2, button4);
-    			/*button4_binding*/ ctx[28](button4);
+    			/*button4_binding*/ ctx[27](button4);
     			insert_dev(target, t29, anchor);
     			mount_component(loading, target, anchor);
     			current = true;
@@ -2408,10 +2408,10 @@ var app = (function () {
     				listen_dev(button0, "click", /*preAdd*/ ctx[11], false, false, false),
     				listen_dev(button1, "click", logout, false, false, false),
     				listen_dev(input0, "keypress", /*changeSearchInput*/ ctx[10], false, false, false),
-    				listen_dev(input1, "input", /*input1_input_handler*/ ctx[24]),
-    				listen_dev(input2, "input", /*input2_input_handler*/ ctx[25]),
-    				listen_dev(input3, "input", /*input3_input_handler*/ ctx[26]),
-    				listen_dev(input4, "input", /*input4_input_handler*/ ctx[27]),
+    				listen_dev(input1, "input", /*input1_input_handler*/ ctx[23]),
+    				listen_dev(input2, "input", /*input2_input_handler*/ ctx[24]),
+    				listen_dev(input3, "input", /*input3_input_handler*/ ctx[25]),
+    				listen_dev(input4, "input", /*input4_input_handler*/ ctx[26]),
     				listen_dev(
     					button3,
     					"click",
@@ -2474,7 +2474,7 @@ var app = (function () {
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(nav);
-    			/*input0_binding*/ ctx[21](null);
+    			/*input0_binding*/ ctx[20](null);
     			if (detaching) detach_dev(t6);
     			if (detaching) detach_dev(table);
 
@@ -2484,7 +2484,7 @@ var app = (function () {
 
     			if (detaching) detach_dev(t17);
     			if (detaching) detach_dev(div5);
-    			/*button4_binding*/ ctx[28](null);
+    			/*button4_binding*/ ctx[27](null);
     			if (detaching) detach_dev(t29);
     			destroy_component(loading, detaching);
     			run_all(dispose);
@@ -2557,24 +2557,11 @@ var app = (function () {
     		$$invalidate(0, loading_show = false);
     	}
 
-    	/**
-     * 搜索框变动监听
-     */
     	function changeSearchInput(e) {
     		if (e.keyCode === 13) {
     			// 回车
     			getList(e.target.value);
     		}
-    	}
-
-    	/**
-     * 更新表单
-     */
-    	function updateForm(json = {}) {
-    		$$invalidate(5, username = json.username || "");
-    		$$invalidate(6, phone = json.phone || "");
-    		$$invalidate(7, profession = json.profession || "");
-    		$$invalidate(8, remind = json.remind || "");
     	}
 
     	function preAdd(item, idx) {
@@ -2733,7 +2720,6 @@ var app = (function () {
     		btn_modal_close,
     		getList,
     		changeSearchInput,
-    		updateForm,
     		logout,
     		preAdd,
     		add,
@@ -2783,7 +2769,6 @@ var app = (function () {
     		edit_id,
     		user,
     		getList,
-    		updateForm,
     		input0_binding,
     		click_handler,
     		click_handler_1,
