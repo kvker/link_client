@@ -16,9 +16,9 @@
   }
 
   async function login() {
-    if(username.length < 2 || !md5_password) {
-      alert('请输入合法账密')
-      return
+    if (username.length < 2 || !md5_password) {
+      alert("请输入合法账密");
+      return;
     }
     loading_show = true;
     try {
@@ -72,26 +72,31 @@
 </script>
 
 <style>
-  #login_page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0 auto;
-  }
-  #login_page > * {
-    margin: 8px 0;
-  }
+
 </style>
 
-<div id="login_page" class="half">
-  <h1>林克</h1>
-  <!-- username, password -->
-  <input bind:value={username} type="text" placeholder="用户名" />
-  <input bind:value={password} type="password" placeholder="密码, 不少于6位" />
-  <button class="full" on:click={login}>登录</button>
-  <button class="full" on:click={checkRegist}>注册</button>
+<div class="container">
+  <h1 class="text-center" style="margin-top: 200px;">林克</h1>
+  <div class="row">
+    <div class="col-8 offset-2 col-xl-4 offset-xl-4">
+      <input
+        class="form-control"
+        bind:value={username}
+        type="text"
+        placeholder="用户名" />
+    </div>
+    <div class="col-8 offset-2 col-xl-4 offset-xl-4" style="margin-top: 8px;">
+      <input
+        class="form-control"
+        bind:value={password}
+        type="password"
+        placeholder="密码, 不少于6位" />
+    </div>
+    <div class="col-8 offset-2 col-xl-4 offset-xl-4 row" style="margin-top: 8px;">
+      <button class="btn btn-primary col-4" on:click={login}>登录</button>
+      <button class="btn btn-info col-4 offset-4" on:click={checkRegist}>注册</button>
+    </div>
+  </div>
 </div>
 
 <Loading bind:show={loading_show} />

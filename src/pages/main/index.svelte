@@ -26,6 +26,7 @@
   let phone;
   let profession;
   let remind;
+  let btn_modal_close;
 
   getList();
 
@@ -65,44 +66,6 @@
   }
 
   /**
-   * 表单确认
-   */
-  async function confirmForm() {
-    if (!username || !phone || !profession || !remind) {
-      alert("请输入全部内容");
-      return;
-    }
-    // this.toggleModal("#modal_add");
-    const body = {
-      username: username,
-      phone: phone,
-      profession: profession,
-      remind: remind,
-      user
-    };
-    loading_show = true;
-    try {
-      if (is_edit) {
-        // 编辑
-        await av.update("Contact", edit_id, body);
-        checked = false;
-        alert("更新成功");
-        getList();
-      } else {
-        // 新增
-        await av.create("Contact", body);
-        checked = false;
-        alert("新增成功");
-        getList();
-      }
-      updateForm();
-    } catch (error) {
-      alert(error.rawMessage || error.message);
-    }
-    loading_show = false;
-  }
-
-  /**
    * 更新表单
    */
   function updateForm(json = {}) {
@@ -117,28 +80,72 @@
     replace("/");
   }
 
-  /**
-   * 点击新增
-   */
-  function add(item, idx) {
-    checked = true;
+  function preAdd(item, idx) {
     is_edit = false;
-    updateForm();
+    username = "";
+    phone = "";
+    profession = "";
+    remind = "";
+    edit_id = "";
   }
 
-  /**
-   * 点击编辑
-   */
-  function edit(item, idx) {
-    checked = true;
+  async function add(item, idx) {
+    is_edit = false;
+    const body = {
+      username: username,
+      phone: phone,
+      profession: profession,
+      remind: remind,
+      user
+    };
+    try {
+      // 新增
+      await av.create("Contact", body);
+      checked = false;
+      jQuery.toast({
+        title: "新增成功",
+        type: "success",
+        delay: 1500
+      });
+      getList();
+      btn_modal_close.click();
+    } catch (error) {
+      alert(error.rawMessage || error.message);
+    }
+  }
+
+  function preEdit(item, idx) {
     is_edit = true;
-    edit_id = item.id;
-    updateForm(item.toJSON());
+    const json = item.toJSON();
+    username = json.username;
+    phone = json.phone;
+    profession = json.profession;
+    remind = json.remind;
+    edit_id = json.objectId;
   }
 
-  /**
-   * 点击删除
-   */
+  async function edit(item, idx) {
+    const body = {
+      username: username,
+      phone: phone,
+      profession: profession,
+      remind: remind
+    };
+    try {
+      await av.update("Contact", edit_id, body);
+      checked = false;
+      jQuery.toast({
+        title: "更新成功",
+        type: "success",
+        delay: 1500
+      });
+      getList();
+      btn_modal_close.click();
+    } catch (error) {
+      alert(error.rawMessage || error.message);
+    }
+  }
+
   async function del(item, idx) {
     if (confirm("确认删除吗?")) {
       loading_show = true;
@@ -156,39 +163,35 @@
 </script>
 
 <style>
-  nav {
-    position: sticky;
-    width: 100%;
-  }
 
-  .modal .content .half {
-    margin: 8px;
-  }
-
-  table {
-    width: 100%;
-  }
-
-  .error {
-    margin-left: 16px;
-  }
 </style>
 
-<nav>
-  <button class="button" on:click={e => add()}>新增</button>
-  <button class="warning" on:click={logout}>退出</button>
-  <span class="list_count_content" style="margin-left: 100px;">
+<nav class="row">
+  <button
+    type="button"
+    class="col-1 btn btn-primary"
+    data-toggle="modal"
+    data-target="#edit_modal"
+    on:click={preAdd}>
+    新增
+  </button>
+  <button
+    class="col-1 btn btn-warning"
+    style="margin-left: 8px;"
+    on:click={logout}>
+    退出
+  </button>
+  <span class="col-2 row justify-content-center align-items-center">
     {list_count_content}
   </span>
-  <div class="menu">
-    <input
-      placeholder="搜索"
-      on:keypress={changeSearchInput}
-      bind:this={seach_input} />
-  </div>
+  <input
+    class="col-2 form-control"
+    placeholder="搜索"
+    on:keypress={changeSearchInput}
+    bind:this={seach_input} />
 </nav>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>姓名</th>
@@ -206,49 +209,79 @@
         <td>{item.get('profession')}</td>
         <td>{item.get('remind')}</td>
         <td>
-          <button class="small_btn" on:click={e => edit(item, idx)}>
-            编辑
-          </button>
-          <button class="small_btn error" on:click={e => del(item, idx)}>
-            删除
-          </button>
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#edit_modal"
+              on:click={e => preEdit(item, idx)}>
+              编辑
+            </button>
+            <button class="btn btn-danger" on:click={e => del(item, idx)}>
+              删除
+            </button>
+          </div>
         </td>
       </tr>
     {/each}
   </tbody>
 </table>
 
-<div class="modal">
-  <input id="modal_add" type="checkbox" bind:checked />
-  <label for="modal_add" class="overlay" />
-  <article>
-    <header>
-      <h3>{is_edit ? '编辑' : '新增'}</h3>
-      <label for="modal_add" class="close">&times;</label>
-    </header>
-    <section class="content flex one center">
-      <input
-        bind:value={username}
-        class="half"
-        type="text"
-        placeholder="姓名" />
-      <input
-        bind:value={phone}
-        class="half center"
-        type="text"
-        placeholder="号码" />
-      <input
-        bind:value={profession}
-        class="half"
-        type="text"
-        placeholder="职业" />
-      <input bind:value={remind} class="half" type="text" placeholder="备注" />
-    </section>
-    <footer>
-      <label class="button" on:click={confirmForm}>确定</label>
-      <label for="modal_add" class="button dangerous">取消</label>
-    </footer>
-  </article>
+<!-- 模态框 -->
+<div class="modal fade" id="edit_modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- 模态框头部 -->
+      <div class="modal-header">
+        <h4 class="modal-title">{is_edit ? '编辑' : '新增'}</h4>
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+      </div>
+
+      <!-- 模态框主体 -->
+      <div class="modal-body row">
+        <input
+          class="form-control col-8 offset-2"
+          style="margin-top: 8px;"
+          bind:value={username}
+          placeholder="姓名" />
+        <input
+          class="form-control col-8 offset-2"
+          style="margin-top: 8px;"
+          bind:value={phone}
+          placeholder="号码" />
+        <input
+          class="form-control col-8 offset-2"
+          style="margin-top: 8px;"
+          bind:value={profession}
+          placeholder="职业" />
+        <input
+          class="form-control col-8 offset-2"
+          style="margin-top: 8px;"
+          bind:value={remind}
+          placeholder="备注" />
+      </div>
+
+      <!-- 模态框底部 -->
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-primary"
+          on:click={is_edit ? edit : add}>
+          确认
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+          bind:this={btn_modal_close}>
+          关闭
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <Loading bind:show={loading_show} />

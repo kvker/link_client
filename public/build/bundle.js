@@ -1673,13 +1673,17 @@ var app = (function () {
     const file$1 = "src/pages/login/index.svelte";
 
     function create_fragment$2(ctx) {
-    	let div;
+    	let div4;
     	let h1;
     	let t1;
+    	let div3;
+    	let div0;
     	let input0;
     	let t2;
+    	let div1;
     	let input1;
     	let t3;
+    	let div2;
     	let button0;
     	let t5;
     	let button1;
@@ -1703,14 +1707,18 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			div = element("div");
+    			div4 = element("div");
     			h1 = element("h1");
     			h1.textContent = "林克";
     			t1 = space();
+    			div3 = element("div");
+    			div0 = element("div");
     			input0 = element("input");
     			t2 = space();
+    			div1 = element("div");
     			input1 = element("input");
     			t3 = space();
+    			div2 = element("div");
     			button0 = element("button");
     			button0.textContent = "登录";
     			t5 = space();
@@ -1718,40 +1726,54 @@ var app = (function () {
     			button1.textContent = "注册";
     			t7 = space();
     			create_component(loading.$$.fragment);
-    			attr_dev(h1, "class", "svelte-h03p5r");
-    			add_location(h1, file$1, 88, 2, 1602);
+    			attr_dev(h1, "class", "text-center");
+    			set_style(h1, "margin-top", "200px");
+    			add_location(h1, file$1, 78, 2, 1392);
+    			attr_dev(input0, "class", "form-control");
     			attr_dev(input0, "type", "text");
     			attr_dev(input0, "placeholder", "用户名");
-    			attr_dev(input0, "class", "svelte-h03p5r");
-    			add_location(input0, file$1, 90, 2, 1646);
+    			add_location(input0, file$1, 81, 6, 1531);
+    			attr_dev(div0, "class", "col-8 offset-2 col-xl-4 offset-xl-4");
+    			add_location(div0, file$1, 80, 4, 1475);
+    			attr_dev(input1, "class", "form-control");
     			attr_dev(input1, "type", "password");
     			attr_dev(input1, "placeholder", "密码, 不少于6位");
-    			attr_dev(input1, "class", "svelte-h03p5r");
-    			add_location(input1, file$1, 91, 2, 1710);
-    			attr_dev(button0, "class", "full svelte-h03p5r");
-    			add_location(button0, file$1, 92, 2, 1784);
-    			attr_dev(button1, "class", "full svelte-h03p5r");
-    			add_location(button1, file$1, 93, 2, 1836);
-    			attr_dev(div, "id", "login_page");
-    			attr_dev(div, "class", "half svelte-h03p5r");
-    			add_location(div, file$1, 87, 0, 1565);
+    			add_location(input1, file$1, 88, 6, 1742);
+    			attr_dev(div1, "class", "col-8 offset-2 col-xl-4 offset-xl-4");
+    			set_style(div1, "margin-top", "8px");
+    			add_location(div1, file$1, 87, 4, 1661);
+    			attr_dev(button0, "class", "btn btn-primary col-4");
+    			add_location(button0, file$1, 95, 6, 1967);
+    			attr_dev(button1, "class", "btn btn-info col-4 offset-4");
+    			add_location(button1, file$1, 96, 6, 2040);
+    			attr_dev(div2, "class", "col-8 offset-2 col-xl-4 offset-xl-4 row");
+    			set_style(div2, "margin-top", "8px");
+    			add_location(div2, file$1, 94, 4, 1882);
+    			attr_dev(div3, "class", "row");
+    			add_location(div3, file$1, 79, 2, 1453);
+    			attr_dev(div4, "class", "container");
+    			add_location(div4, file$1, 77, 0, 1366);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor, remount) {
-    			insert_dev(target, div, anchor);
-    			append_dev(div, h1);
-    			append_dev(div, t1);
-    			append_dev(div, input0);
+    			insert_dev(target, div4, anchor);
+    			append_dev(div4, h1);
+    			append_dev(div4, t1);
+    			append_dev(div4, div3);
+    			append_dev(div3, div0);
+    			append_dev(div0, input0);
     			set_input_value(input0, /*username*/ ctx[0]);
-    			append_dev(div, t2);
-    			append_dev(div, input1);
+    			append_dev(div3, t2);
+    			append_dev(div3, div1);
+    			append_dev(div1, input1);
     			set_input_value(input1, /*password*/ ctx[1]);
-    			append_dev(div, t3);
-    			append_dev(div, button0);
-    			append_dev(div, t5);
-    			append_dev(div, button1);
+    			append_dev(div3, t3);
+    			append_dev(div3, div2);
+    			append_dev(div2, button0);
+    			append_dev(div2, t5);
+    			append_dev(div2, button1);
     			insert_dev(target, t7, anchor);
     			mount_component(loading, target, anchor);
     			current = true;
@@ -1793,7 +1815,7 @@ var app = (function () {
     			current = false;
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div);
+    			if (detaching) detach_dev(div4);
     			if (detaching) detach_dev(t7);
     			destroy_component(loading, detaching);
     			run_all(dispose);
@@ -1968,43 +1990,44 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[29] = list[i];
-    	child_ctx[31] = i;
+    	child_ctx[30] = list[i];
+    	child_ctx[32] = i;
     	return child_ctx;
     }
 
-    // (202:4) {#each list as item, idx (idx)}
+    // (205:4) {#each list as item, idx (idx)}
     function create_each_block(key_1, ctx) {
     	let tr;
     	let td0;
-    	let t0_value = /*item*/ ctx[29].get("username") + "";
+    	let t0_value = /*item*/ ctx[30].get("username") + "";
     	let t0;
     	let t1;
     	let td1;
-    	let t2_value = /*item*/ ctx[29].get("phone") + "";
+    	let t2_value = /*item*/ ctx[30].get("phone") + "";
     	let t2;
     	let t3;
     	let td2;
-    	let t4_value = /*item*/ ctx[29].get("profession") + "";
+    	let t4_value = /*item*/ ctx[30].get("profession") + "";
     	let t4;
     	let t5;
     	let td3;
-    	let t6_value = /*item*/ ctx[29].get("remind") + "";
+    	let t6_value = /*item*/ ctx[30].get("remind") + "";
     	let t6;
     	let t7;
     	let td4;
+    	let div;
     	let button0;
     	let t9;
     	let button1;
     	let t11;
     	let dispose;
 
-    	function click_handler_1(...args) {
-    		return /*click_handler_1*/ ctx[21](/*item*/ ctx[29], /*idx*/ ctx[31], ...args);
+    	function click_handler(...args) {
+    		return /*click_handler*/ ctx[22](/*item*/ ctx[30], /*idx*/ ctx[32], ...args);
     	}
 
-    	function click_handler_2(...args) {
-    		return /*click_handler_2*/ ctx[22](/*item*/ ctx[29], /*idx*/ ctx[31], ...args);
+    	function click_handler_1(...args) {
+    		return /*click_handler_1*/ ctx[23](/*item*/ ctx[30], /*idx*/ ctx[32], ...args);
     	}
 
     	const block = {
@@ -2025,22 +2048,28 @@ var app = (function () {
     			t6 = text(t6_value);
     			t7 = space();
     			td4 = element("td");
+    			div = element("div");
     			button0 = element("button");
     			button0.textContent = "编辑";
     			t9 = space();
     			button1 = element("button");
     			button1.textContent = "删除";
     			t11 = space();
-    			add_location(td0, file$2, 203, 8, 3779);
-    			add_location(td1, file$2, 204, 8, 3819);
-    			add_location(td2, file$2, 205, 8, 3856);
-    			add_location(td3, file$2, 206, 8, 3898);
-    			attr_dev(button0, "class", "small_btn");
-    			add_location(button0, file$2, 208, 10, 3951);
-    			attr_dev(button1, "class", "small_btn error svelte-1fwldnf");
-    			add_location(button1, file$2, 211, 10, 4055);
-    			add_location(td4, file$2, 207, 8, 3936);
-    			add_location(tr, file$2, 202, 6, 3766);
+    			add_location(td0, file$2, 206, 8, 4104);
+    			add_location(td1, file$2, 207, 8, 4144);
+    			add_location(td2, file$2, 208, 8, 4181);
+    			add_location(td3, file$2, 209, 8, 4223);
+    			attr_dev(button0, "type", "button");
+    			attr_dev(button0, "class", "btn btn-primary");
+    			attr_dev(button0, "data-toggle", "modal");
+    			attr_dev(button0, "data-target", "#edit_modal");
+    			add_location(button0, file$2, 212, 12, 4312);
+    			attr_dev(button1, "class", "btn btn-danger");
+    			add_location(button1, file$2, 220, 12, 4561);
+    			attr_dev(div, "class", "btn-group");
+    			add_location(div, file$2, 211, 10, 4276);
+    			add_location(td4, file$2, 210, 8, 4261);
+    			add_location(tr, file$2, 205, 6, 4091);
     			this.first = tr;
     		},
     		m: function mount(target, anchor, remount) {
@@ -2058,23 +2087,24 @@ var app = (function () {
     			append_dev(td3, t6);
     			append_dev(tr, t7);
     			append_dev(tr, td4);
-    			append_dev(td4, button0);
-    			append_dev(td4, t9);
-    			append_dev(td4, button1);
+    			append_dev(td4, div);
+    			append_dev(div, button0);
+    			append_dev(div, t9);
+    			append_dev(div, button1);
     			append_dev(tr, t11);
     			if (remount) run_all(dispose);
 
     			dispose = [
-    				listen_dev(button0, "click", click_handler_1, false, false, false),
-    				listen_dev(button1, "click", click_handler_2, false, false, false)
+    				listen_dev(button0, "click", click_handler, false, false, false),
+    				listen_dev(button1, "click", click_handler_1, false, false, false)
     			];
     		},
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
-    			if (dirty[0] & /*list*/ 2 && t0_value !== (t0_value = /*item*/ ctx[29].get("username") + "")) set_data_dev(t0, t0_value);
-    			if (dirty[0] & /*list*/ 2 && t2_value !== (t2_value = /*item*/ ctx[29].get("phone") + "")) set_data_dev(t2, t2_value);
-    			if (dirty[0] & /*list*/ 2 && t4_value !== (t4_value = /*item*/ ctx[29].get("profession") + "")) set_data_dev(t4, t4_value);
-    			if (dirty[0] & /*list*/ 2 && t6_value !== (t6_value = /*item*/ ctx[29].get("remind") + "")) set_data_dev(t6, t6_value);
+    			if (dirty[0] & /*list*/ 2 && t0_value !== (t0_value = /*item*/ ctx[30].get("username") + "")) set_data_dev(t0, t0_value);
+    			if (dirty[0] & /*list*/ 2 && t2_value !== (t2_value = /*item*/ ctx[30].get("phone") + "")) set_data_dev(t2, t2_value);
+    			if (dirty[0] & /*list*/ 2 && t4_value !== (t4_value = /*item*/ ctx[30].get("profession") + "")) set_data_dev(t4, t4_value);
+    			if (dirty[0] & /*list*/ 2 && t6_value !== (t6_value = /*item*/ ctx[30].get("remind") + "")) set_data_dev(t6, t6_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(tr);
@@ -2086,7 +2116,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(202:4) {#each list as item, idx (idx)}",
+    		source: "(205:4) {#each list as item, idx (idx)}",
     		ctx
     	});
 
@@ -2102,7 +2132,6 @@ var app = (function () {
     	let span;
     	let t4;
     	let t5;
-    	let div0;
     	let input0;
     	let t6;
     	let table;
@@ -2122,39 +2151,36 @@ var app = (function () {
     	let each_blocks = [];
     	let each_1_lookup = new Map();
     	let t17;
+    	let div5;
+    	let div4;
+    	let div3;
+    	let div0;
+    	let h4;
+    	let t18_value = (/*is_edit*/ ctx[3] ? "编辑" : "新增") + "";
+    	let t18;
+    	let t19;
+    	let button2;
+    	let t21;
     	let div1;
     	let input1;
-    	let t18;
-    	let label0;
-    	let t19;
-    	let article;
-    	let header;
-    	let h3;
-    	let t20_value = (/*is_edit*/ ctx[4] ? "编辑" : "新增") + "";
-    	let t20;
-    	let t21;
-    	let label1;
-    	let t23;
-    	let section;
+    	let t22;
     	let input2;
-    	let t24;
+    	let t23;
     	let input3;
-    	let t25;
+    	let t24;
     	let input4;
-    	let t26;
-    	let input5;
+    	let t25;
+    	let div2;
+    	let button3;
     	let t27;
-    	let footer;
-    	let label2;
+    	let button4;
     	let t29;
-    	let label3;
-    	let t31;
     	let updating_show;
     	let current;
     	let dispose;
     	let each_value = /*list*/ ctx[1];
     	validate_each_argument(each_value);
-    	const get_key = ctx => /*idx*/ ctx[31];
+    	const get_key = ctx => /*idx*/ ctx[32];
     	validate_each_keys(ctx, each_value, get_each_context, get_key);
 
     	for (let i = 0; i < each_value.length; i += 1) {
@@ -2164,7 +2190,7 @@ var app = (function () {
     	}
 
     	function loading_show_binding(value) {
-    		/*loading_show_binding*/ ctx[28].call(null, value);
+    		/*loading_show_binding*/ ctx[29].call(null, value);
     	}
 
     	let loading_props = {};
@@ -2188,7 +2214,6 @@ var app = (function () {
     			span = element("span");
     			t4 = text(/*list_count_content*/ ctx[2]);
     			t5 = space();
-    			div0 = element("div");
     			input0 = element("input");
     			t6 = space();
     			table = element("table");
@@ -2216,98 +2241,101 @@ var app = (function () {
     			}
 
     			t17 = space();
+    			div5 = element("div");
+    			div4 = element("div");
+    			div3 = element("div");
+    			div0 = element("div");
+    			h4 = element("h4");
+    			t18 = text(t18_value);
+    			t19 = space();
+    			button2 = element("button");
+    			button2.textContent = "×";
+    			t21 = space();
     			div1 = element("div");
     			input1 = element("input");
-    			t18 = space();
-    			label0 = element("label");
-    			t19 = space();
-    			article = element("article");
-    			header = element("header");
-    			h3 = element("h3");
-    			t20 = text(t20_value);
-    			t21 = space();
-    			label1 = element("label");
-    			label1.textContent = "×";
-    			t23 = space();
-    			section = element("section");
+    			t22 = space();
     			input2 = element("input");
-    			t24 = space();
+    			t23 = space();
     			input3 = element("input");
-    			t25 = space();
+    			t24 = space();
     			input4 = element("input");
-    			t26 = space();
-    			input5 = element("input");
+    			t25 = space();
+    			div2 = element("div");
+    			button3 = element("button");
+    			button3.textContent = "确认";
     			t27 = space();
-    			footer = element("footer");
-    			label2 = element("label");
-    			label2.textContent = "确定";
+    			button4 = element("button");
+    			button4.textContent = "关闭";
     			t29 = space();
-    			label3 = element("label");
-    			label3.textContent = "取消";
-    			t31 = space();
     			create_component(loading.$$.fragment);
-    			attr_dev(button0, "class", "button");
-    			add_location(button0, file$2, 177, 2, 3210);
-    			attr_dev(button1, "class", "warning");
-    			add_location(button1, file$2, 178, 2, 3269);
-    			attr_dev(span, "class", "list_count_content");
-    			set_style(span, "margin-left", "100px");
-    			add_location(span, file$2, 179, 2, 3325);
+    			attr_dev(button0, "type", "button");
+    			attr_dev(button0, "class", "col-1 btn btn-primary");
+    			attr_dev(button0, "data-toggle", "modal");
+    			attr_dev(button0, "data-target", "#edit_modal");
+    			add_location(button0, file$2, 169, 2, 3350);
+    			attr_dev(button1, "class", "col-1 btn btn-warning");
+    			set_style(button1, "margin-left", "8px");
+    			add_location(button1, file$2, 177, 2, 3508);
+    			attr_dev(span, "class", "col-2 row justify-content-center align-items-center");
+    			add_location(span, file$2, 183, 2, 3624);
+    			attr_dev(input0, "class", "col-2 form-control");
     			attr_dev(input0, "placeholder", "搜索");
-    			add_location(input0, file$2, 183, 4, 3447);
-    			attr_dev(div0, "class", "menu");
-    			add_location(div0, file$2, 182, 2, 3424);
-    			attr_dev(nav, "class", "svelte-1fwldnf");
-    			add_location(nav, file$2, 176, 0, 3202);
-    			add_location(th0, file$2, 193, 6, 3598);
-    			add_location(th1, file$2, 194, 6, 3616);
-    			add_location(th2, file$2, 195, 6, 3634);
-    			add_location(th3, file$2, 196, 6, 3652);
-    			add_location(th4, file$2, 197, 6, 3670);
-    			add_location(tr, file$2, 192, 4, 3587);
-    			add_location(thead, file$2, 191, 2, 3575);
+    			add_location(input0, file$2, 186, 2, 3728);
+    			attr_dev(nav, "class", "row");
+    			add_location(nav, file$2, 168, 0, 3330);
+    			add_location(th0, file$2, 196, 6, 3923);
+    			add_location(th1, file$2, 197, 6, 3941);
+    			add_location(th2, file$2, 198, 6, 3959);
+    			add_location(th3, file$2, 199, 6, 3977);
+    			add_location(th4, file$2, 200, 6, 3995);
+    			add_location(tr, file$2, 195, 4, 3912);
+    			add_location(thead, file$2, 194, 2, 3900);
     			attr_dev(tbody, "id", "tbody");
-    			add_location(tbody, file$2, 200, 2, 3705);
-    			attr_dev(table, "class", "svelte-1fwldnf");
-    			add_location(table, file$2, 190, 0, 3565);
-    			attr_dev(input1, "id", "modal_add");
-    			attr_dev(input1, "type", "checkbox");
-    			add_location(input1, file$2, 221, 2, 4235);
-    			attr_dev(label0, "for", "modal_add");
-    			attr_dev(label0, "class", "overlay");
-    			add_location(label0, file$2, 222, 2, 4291);
-    			add_location(h3, file$2, 225, 6, 4364);
-    			attr_dev(label1, "for", "modal_add");
-    			attr_dev(label1, "class", "close");
-    			add_location(label1, file$2, 226, 6, 4403);
-    			add_location(header, file$2, 224, 4, 4349);
-    			attr_dev(input2, "class", "half svelte-1fwldnf");
-    			attr_dev(input2, "type", "text");
-    			attr_dev(input2, "placeholder", "姓名");
-    			add_location(input2, file$2, 229, 6, 4522);
-    			attr_dev(input3, "class", "half center svelte-1fwldnf");
-    			attr_dev(input3, "type", "text");
-    			attr_dev(input3, "placeholder", "号码");
-    			add_location(input3, file$2, 234, 6, 4634);
-    			attr_dev(input4, "class", "half svelte-1fwldnf");
-    			attr_dev(input4, "type", "text");
-    			attr_dev(input4, "placeholder", "职业");
-    			add_location(input4, file$2, 239, 6, 4750);
-    			attr_dev(input5, "class", "half svelte-1fwldnf");
-    			attr_dev(input5, "type", "text");
-    			attr_dev(input5, "placeholder", "备注");
-    			add_location(input5, file$2, 244, 6, 4864);
-    			attr_dev(section, "class", "content flex one center");
-    			add_location(section, file$2, 228, 4, 4474);
-    			attr_dev(label2, "class", "button");
-    			add_location(label2, file$2, 247, 6, 4970);
-    			attr_dev(label3, "for", "modal_add");
-    			attr_dev(label3, "class", "button dangerous");
-    			add_location(label3, file$2, 248, 6, 5032);
-    			add_location(footer, file$2, 246, 4, 4955);
-    			add_location(article, file$2, 223, 2, 4335);
-    			attr_dev(div1, "class", "modal svelte-1fwldnf");
-    			add_location(div1, file$2, 220, 0, 4213);
+    			add_location(tbody, file$2, 203, 2, 4030);
+    			attr_dev(table, "class", "table table-striped");
+    			add_location(table, file$2, 193, 0, 3862);
+    			attr_dev(h4, "class", "modal-title");
+    			add_location(h4, file$2, 236, 8, 4916);
+    			attr_dev(button2, "type", "button");
+    			attr_dev(button2, "class", "close");
+    			attr_dev(button2, "data-dismiss", "modal");
+    			add_location(button2, file$2, 237, 8, 4977);
+    			attr_dev(div0, "class", "modal-header");
+    			add_location(div0, file$2, 235, 6, 4881);
+    			attr_dev(input1, "class", "form-control col-8 offset-2");
+    			set_style(input1, "margin-top", "8px");
+    			attr_dev(input1, "placeholder", "姓名");
+    			add_location(input1, file$2, 244, 8, 5149);
+    			attr_dev(input2, "class", "form-control col-8 offset-2");
+    			set_style(input2, "margin-top", "8px");
+    			attr_dev(input2, "placeholder", "号码");
+    			add_location(input2, file$2, 249, 8, 5307);
+    			attr_dev(input3, "class", "form-control col-8 offset-2");
+    			set_style(input3, "margin-top", "8px");
+    			attr_dev(input3, "placeholder", "职业");
+    			add_location(input3, file$2, 254, 8, 5462);
+    			attr_dev(input4, "class", "form-control col-8 offset-2");
+    			set_style(input4, "margin-top", "8px");
+    			attr_dev(input4, "placeholder", "备注");
+    			add_location(input4, file$2, 259, 8, 5622);
+    			attr_dev(div1, "class", "modal-body row");
+    			add_location(div1, file$2, 243, 6, 5112);
+    			attr_dev(button3, "type", "button");
+    			attr_dev(button3, "class", "btn btn-primary");
+    			add_location(button3, file$2, 268, 8, 5846);
+    			attr_dev(button4, "type", "button");
+    			attr_dev(button4, "class", "btn btn-secondary");
+    			attr_dev(button4, "data-dismiss", "modal");
+    			add_location(button4, file$2, 274, 8, 5994);
+    			attr_dev(div2, "class", "modal-footer");
+    			add_location(div2, file$2, 267, 6, 5811);
+    			attr_dev(div3, "class", "modal-content");
+    			add_location(div3, file$2, 233, 4, 4826);
+    			attr_dev(div4, "class", "modal-dialog");
+    			add_location(div4, file$2, 232, 2, 4795);
+    			attr_dev(div5, "class", "modal fade");
+    			attr_dev(div5, "id", "edit_modal");
+    			add_location(div5, file$2, 231, 0, 4752);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2321,9 +2349,8 @@ var app = (function () {
     			append_dev(nav, span);
     			append_dev(span, t4);
     			append_dev(nav, t5);
-    			append_dev(nav, div0);
-    			append_dev(div0, input0);
-    			/*input0_binding*/ ctx[20](input0);
+    			append_dev(nav, input0);
+    			/*input0_binding*/ ctx[21](input0);
     			insert_dev(target, t6, anchor);
     			insert_dev(target, table, anchor);
     			append_dev(table, thead);
@@ -2345,83 +2372,85 @@ var app = (function () {
     			}
 
     			insert_dev(target, t17, anchor);
-    			insert_dev(target, div1, anchor);
+    			insert_dev(target, div5, anchor);
+    			append_dev(div5, div4);
+    			append_dev(div4, div3);
+    			append_dev(div3, div0);
+    			append_dev(div0, h4);
+    			append_dev(h4, t18);
+    			append_dev(div0, t19);
+    			append_dev(div0, button2);
+    			append_dev(div3, t21);
+    			append_dev(div3, div1);
     			append_dev(div1, input1);
-    			input1.checked = /*checked*/ ctx[3];
-    			append_dev(div1, t18);
-    			append_dev(div1, label0);
-    			append_dev(div1, t19);
-    			append_dev(div1, article);
-    			append_dev(article, header);
-    			append_dev(header, h3);
-    			append_dev(h3, t20);
-    			append_dev(header, t21);
-    			append_dev(header, label1);
-    			append_dev(article, t23);
-    			append_dev(article, section);
-    			append_dev(section, input2);
-    			set_input_value(input2, /*username*/ ctx[6]);
-    			append_dev(section, t24);
-    			append_dev(section, input3);
-    			set_input_value(input3, /*phone*/ ctx[7]);
-    			append_dev(section, t25);
-    			append_dev(section, input4);
-    			set_input_value(input4, /*profession*/ ctx[8]);
-    			append_dev(section, t26);
-    			append_dev(section, input5);
-    			set_input_value(input5, /*remind*/ ctx[9]);
-    			append_dev(article, t27);
-    			append_dev(article, footer);
-    			append_dev(footer, label2);
-    			append_dev(footer, t29);
-    			append_dev(footer, label3);
-    			insert_dev(target, t31, anchor);
+    			set_input_value(input1, /*username*/ ctx[5]);
+    			append_dev(div1, t22);
+    			append_dev(div1, input2);
+    			set_input_value(input2, /*phone*/ ctx[6]);
+    			append_dev(div1, t23);
+    			append_dev(div1, input3);
+    			set_input_value(input3, /*profession*/ ctx[7]);
+    			append_dev(div1, t24);
+    			append_dev(div1, input4);
+    			set_input_value(input4, /*remind*/ ctx[8]);
+    			append_dev(div3, t25);
+    			append_dev(div3, div2);
+    			append_dev(div2, button3);
+    			append_dev(div2, t27);
+    			append_dev(div2, button4);
+    			/*button4_binding*/ ctx[28](button4);
+    			insert_dev(target, t29, anchor);
     			mount_component(loading, target, anchor);
     			current = true;
     			if (remount) run_all(dispose);
 
     			dispose = [
-    				listen_dev(button0, "click", /*click_handler*/ ctx[19], false, false, false),
+    				listen_dev(button0, "click", /*preAdd*/ ctx[11], false, false, false),
     				listen_dev(button1, "click", logout, false, false, false),
     				listen_dev(input0, "keypress", /*changeSearchInput*/ ctx[10], false, false, false),
-    				listen_dev(input1, "change", /*input1_change_handler*/ ctx[23]),
-    				listen_dev(input2, "input", /*input2_input_handler*/ ctx[24]),
-    				listen_dev(input3, "input", /*input3_input_handler*/ ctx[25]),
-    				listen_dev(input4, "input", /*input4_input_handler*/ ctx[26]),
-    				listen_dev(input5, "input", /*input5_input_handler*/ ctx[27]),
-    				listen_dev(label2, "click", /*confirmForm*/ ctx[11], false, false, false)
+    				listen_dev(input1, "input", /*input1_input_handler*/ ctx[24]),
+    				listen_dev(input2, "input", /*input2_input_handler*/ ctx[25]),
+    				listen_dev(input3, "input", /*input3_input_handler*/ ctx[26]),
+    				listen_dev(input4, "input", /*input4_input_handler*/ ctx[27]),
+    				listen_dev(
+    					button3,
+    					"click",
+    					function () {
+    						if (is_function(/*is_edit*/ ctx[3] ? /*edit*/ ctx[14] : /*add*/ ctx[12])) (/*is_edit*/ ctx[3] ? /*edit*/ ctx[14] : /*add*/ ctx[12]).apply(this, arguments);
+    					},
+    					false,
+    					false,
+    					false
+    				)
     			];
     		},
-    		p: function update(ctx, dirty) {
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
     			if (!current || dirty[0] & /*list_count_content*/ 4) set_data_dev(t4, /*list_count_content*/ ctx[2]);
 
-    			if (dirty[0] & /*del, list, edit*/ 24578) {
+    			if (dirty[0] & /*del, list, preEdit*/ 40962) {
     				const each_value = /*list*/ ctx[1];
     				validate_each_argument(each_value);
     				validate_each_keys(ctx, each_value, get_each_context, get_key);
     				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, tbody, destroy_block, create_each_block, null, get_each_context);
     			}
 
-    			if (dirty[0] & /*checked*/ 8) {
-    				input1.checked = /*checked*/ ctx[3];
+    			if ((!current || dirty[0] & /*is_edit*/ 8) && t18_value !== (t18_value = (/*is_edit*/ ctx[3] ? "编辑" : "新增") + "")) set_data_dev(t18, t18_value);
+
+    			if (dirty[0] & /*username*/ 32 && input1.value !== /*username*/ ctx[5]) {
+    				set_input_value(input1, /*username*/ ctx[5]);
     			}
 
-    			if ((!current || dirty[0] & /*is_edit*/ 16) && t20_value !== (t20_value = (/*is_edit*/ ctx[4] ? "编辑" : "新增") + "")) set_data_dev(t20, t20_value);
-
-    			if (dirty[0] & /*username*/ 64 && input2.value !== /*username*/ ctx[6]) {
-    				set_input_value(input2, /*username*/ ctx[6]);
+    			if (dirty[0] & /*phone*/ 64 && input2.value !== /*phone*/ ctx[6]) {
+    				set_input_value(input2, /*phone*/ ctx[6]);
     			}
 
-    			if (dirty[0] & /*phone*/ 128 && input3.value !== /*phone*/ ctx[7]) {
-    				set_input_value(input3, /*phone*/ ctx[7]);
+    			if (dirty[0] & /*profession*/ 128 && input3.value !== /*profession*/ ctx[7]) {
+    				set_input_value(input3, /*profession*/ ctx[7]);
     			}
 
-    			if (dirty[0] & /*profession*/ 256 && input4.value !== /*profession*/ ctx[8]) {
-    				set_input_value(input4, /*profession*/ ctx[8]);
-    			}
-
-    			if (dirty[0] & /*remind*/ 512 && input5.value !== /*remind*/ ctx[9]) {
-    				set_input_value(input5, /*remind*/ ctx[9]);
+    			if (dirty[0] & /*remind*/ 256 && input4.value !== /*remind*/ ctx[8]) {
+    				set_input_value(input4, /*remind*/ ctx[8]);
     			}
 
     			const loading_changes = {};
@@ -2445,7 +2474,7 @@ var app = (function () {
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(nav);
-    			/*input0_binding*/ ctx[20](null);
+    			/*input0_binding*/ ctx[21](null);
     			if (detaching) detach_dev(t6);
     			if (detaching) detach_dev(table);
 
@@ -2454,8 +2483,9 @@ var app = (function () {
     			}
 
     			if (detaching) detach_dev(t17);
-    			if (detaching) detach_dev(div1);
-    			if (detaching) detach_dev(t31);
+    			if (detaching) detach_dev(div5);
+    			/*button4_binding*/ ctx[28](null);
+    			if (detaching) detach_dev(t29);
     			destroy_component(loading, detaching);
     			run_all(dispose);
     		}
@@ -2509,6 +2539,7 @@ var app = (function () {
     	let phone;
     	let profession;
     	let remind;
+    	let btn_modal_close;
     	getList();
 
     	/**
@@ -2548,15 +2579,27 @@ var app = (function () {
     	}
 
     	/**
-     * 表单确认
+     * 更新表单
      */
-    	async function confirmForm() {
-    		if (!username || !phone || !profession || !remind) {
-    			alert("请输入全部内容");
-    			return;
-    		}
+    	function updateForm(json = {}) {
+    		$$invalidate(5, username = json.username || "");
+    		$$invalidate(6, phone = json.phone || "");
+    		$$invalidate(7, profession = json.profession || "");
+    		$$invalidate(8, remind = json.remind || "");
+    	}
 
-    		// this.toggleModal("#modal_add");
+    	function preAdd(item, idx) {
+    		$$invalidate(3, is_edit = false);
+    		$$invalidate(5, username = "");
+    		$$invalidate(6, phone = "");
+    		$$invalidate(7, profession = "");
+    		$$invalidate(8, remind = "");
+    		edit_id = "";
+    	}
+
+    	async function add(item, idx) {
+    		$$invalidate(3, is_edit = false);
+
     		const body = {
     			username,
     			phone,
@@ -2565,72 +2608,62 @@ var app = (function () {
     			user
     		};
 
-    		$$invalidate(0, loading_show = true);
-
     		try {
-    			if (is_edit) {
-    				// 编辑
-    				await av.update("Contact", edit_id, body);
+    			// 新增
+    			await av.create("Contact", body);
 
-    				$$invalidate(3, checked = false);
-    				alert("更新成功");
-    				getList();
-    			} else {
-    				// 新增
-    				await av.create("Contact", body);
+    			checked = false;
 
-    				$$invalidate(3, checked = false);
-    				alert("新增成功");
-    				getList();
-    			}
+    			jQuery.toast({
+    				title: "新增成功",
+    				type: "success",
+    				delay: 1500
+    			});
 
-    			updateForm();
+    			getList();
+    			btn_modal_close.click();
     		} catch(error) {
     			alert(error.rawMessage || error.message);
     		}
-
-    		$$invalidate(0, loading_show = false);
     	}
 
-    	/**
-     * 更新表单
-     */
-    	function updateForm(json = {}) {
-    		$$invalidate(6, username = json.username || "");
-    		$$invalidate(7, phone = json.phone || "");
-    		$$invalidate(8, profession = json.profession || "");
-    		$$invalidate(9, remind = json.remind || "");
+    	function preEdit(item, idx) {
+    		$$invalidate(3, is_edit = true);
+    		const json = item.toJSON();
+    		$$invalidate(5, username = json.username);
+    		$$invalidate(6, phone = json.phone);
+    		$$invalidate(7, profession = json.profession);
+    		$$invalidate(8, remind = json.remind);
+    		edit_id = json.objectId;
     	}
 
-    	/**
-     * 点击新增
-     */
-    	function add(item, idx) {
-    		$$invalidate(3, checked = true);
-    		$$invalidate(4, is_edit = false);
-    		updateForm();
+    	async function edit(item, idx) {
+    		const body = { username, phone, profession, remind };
+
+    		try {
+    			await av.update("Contact", edit_id, body);
+    			checked = false;
+
+    			jQuery.toast({
+    				title: "更新成功",
+    				type: "success",
+    				delay: 1500
+    			});
+
+    			getList();
+    			btn_modal_close.click();
+    		} catch(error) {
+    			alert(error.rawMessage || error.message);
+    		}
     	}
 
-    	/**
-     * 点击编辑
-     */
-    	function edit(item, idx) {
-    		$$invalidate(3, checked = true);
-    		$$invalidate(4, is_edit = true);
-    		edit_id = item.id;
-    		updateForm(item.toJSON());
-    	}
-
-    	/**
-     * 点击删除
-     */
     	async function del(item, idx) {
     		if (confirm("确认删除吗?")) {
     			$$invalidate(0, loading_show = true);
 
     			try {
     				await av.delete("Contact", item.id);
-    				$$invalidate(3, checked = false);
+    				checked = false;
     				list.splice(idx, 1);
     				$$invalidate(1, list);
     			} catch(error) {
@@ -2649,40 +2682,40 @@ var app = (function () {
 
     	let { $$slots = {}, $$scope } = $$props;
     	validate_slots("Main", $$slots, []);
-    	const click_handler = e => add();
 
     	function input0_binding($$value) {
     		binding_callbacks[$$value ? "unshift" : "push"](() => {
-    			$$invalidate(5, seach_input = $$value);
+    			$$invalidate(4, seach_input = $$value);
     		});
     	}
 
-    	const click_handler_1 = (item, idx, e) => edit(item);
-    	const click_handler_2 = (item, idx, e) => del(item, idx);
+    	const click_handler = (item, idx, e) => preEdit(item);
+    	const click_handler_1 = (item, idx, e) => del(item, idx);
 
-    	function input1_change_handler() {
-    		checked = this.checked;
-    		$$invalidate(3, checked);
+    	function input1_input_handler() {
+    		username = this.value;
+    		$$invalidate(5, username);
     	}
 
     	function input2_input_handler() {
-    		username = this.value;
-    		$$invalidate(6, username);
+    		phone = this.value;
+    		$$invalidate(6, phone);
     	}
 
     	function input3_input_handler() {
-    		phone = this.value;
-    		$$invalidate(7, phone);
+    		profession = this.value;
+    		$$invalidate(7, profession);
     	}
 
     	function input4_input_handler() {
-    		profession = this.value;
-    		$$invalidate(8, profession);
+    		remind = this.value;
+    		$$invalidate(8, remind);
     	}
 
-    	function input5_input_handler() {
-    		remind = this.value;
-    		$$invalidate(9, remind);
+    	function button4_binding($$value) {
+    		binding_callbacks[$$value ? "unshift" : "push"](() => {
+    			$$invalidate(9, btn_modal_close = $$value);
+    		});
     	}
 
     	function loading_show_binding(value) {
@@ -2708,12 +2741,14 @@ var app = (function () {
     		phone,
     		profession,
     		remind,
+    		btn_modal_close,
     		getList,
     		changeSearchInput,
-    		confirmForm,
     		updateForm,
     		logout,
+    		preAdd,
     		add,
+    		preEdit,
     		edit,
     		del
     	});
@@ -2723,14 +2758,15 @@ var app = (function () {
     		if ("loading_show" in $$props) $$invalidate(0, loading_show = $$props.loading_show);
     		if ("list" in $$props) $$invalidate(1, list = $$props.list);
     		if ("list_count_content" in $$props) $$invalidate(2, list_count_content = $$props.list_count_content);
-    		if ("checked" in $$props) $$invalidate(3, checked = $$props.checked);
-    		if ("is_edit" in $$props) $$invalidate(4, is_edit = $$props.is_edit);
+    		if ("checked" in $$props) checked = $$props.checked;
+    		if ("is_edit" in $$props) $$invalidate(3, is_edit = $$props.is_edit);
     		if ("edit_id" in $$props) edit_id = $$props.edit_id;
-    		if ("seach_input" in $$props) $$invalidate(5, seach_input = $$props.seach_input);
-    		if ("username" in $$props) $$invalidate(6, username = $$props.username);
-    		if ("phone" in $$props) $$invalidate(7, phone = $$props.phone);
-    		if ("profession" in $$props) $$invalidate(8, profession = $$props.profession);
-    		if ("remind" in $$props) $$invalidate(9, remind = $$props.remind);
+    		if ("seach_input" in $$props) $$invalidate(4, seach_input = $$props.seach_input);
+    		if ("username" in $$props) $$invalidate(5, username = $$props.username);
+    		if ("phone" in $$props) $$invalidate(6, phone = $$props.phone);
+    		if ("profession" in $$props) $$invalidate(7, profession = $$props.profession);
+    		if ("remind" in $$props) $$invalidate(8, remind = $$props.remind);
+    		if ("btn_modal_close" in $$props) $$invalidate(9, btn_modal_close = $$props.btn_modal_close);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -2741,31 +2777,32 @@ var app = (function () {
     		loading_show,
     		list,
     		list_count_content,
-    		checked,
     		is_edit,
     		seach_input,
     		username,
     		phone,
     		profession,
     		remind,
+    		btn_modal_close,
     		changeSearchInput,
-    		confirmForm,
+    		preAdd,
     		add,
+    		preEdit,
     		edit,
     		del,
+    		checked,
     		edit_id,
     		user,
     		getList,
     		updateForm,
-    		click_handler,
     		input0_binding,
+    		click_handler,
     		click_handler_1,
-    		click_handler_2,
-    		input1_change_handler,
+    		input1_input_handler,
     		input2_input_handler,
     		input3_input_handler,
     		input4_input_handler,
-    		input5_input_handler,
+    		button4_binding,
     		loading_show_binding
     	];
     }
