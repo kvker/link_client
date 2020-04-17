@@ -56,6 +56,10 @@
     }
   }
 
+  function clickSearch() {
+    getList(seach_input.value)
+  }
+
   function logout() {
     AV.User.logOut();
     replace("/");
@@ -147,67 +151,77 @@
 
 </style>
 
-<nav class="row">
-  <button
-    type="button"
-    class="col-1 btn btn-primary"
-    data-toggle="modal"
-    data-target="#edit_modal"
-    on:click={preAdd}>
-    新增
-  </button>
-  <button
-    class="col-1 btn btn-warning"
-    style="margin-left: 8px;"
-    on:click={logout}>
-    退出
-  </button>
-  <span class="col-2 row justify-content-center align-items-center">
-    {list_count_content}
-  </span>
-  <input
-    class="col-2 form-control"
-    placeholder="搜索"
-    on:keypress={changeSearchInput}
-    bind:this={seach_input} />
-</nav>
+<main class="container-fluid">
+  <div class="row my-1">
+    <button
+      type="button"
+      class="col-1 btn btn-primary"
+      data-toggle="modal"
+      data-target="#edit_modal"
+      on:click={preAdd}>
+      新增
+    </button>
+    <button
+      class="col-1 btn btn-warning"
+      style="margin-left: 8px;"
+      on:click={logout}>
+      退出
+    </button>
+    <span class="col-2 row justify-content-center align-items-center">
+      {list_count_content}
+    </span>
+    <input
+      class="col-2 form-control"
+      placeholder="搜索内容"
+      on:keypress={changeSearchInput}
+      bind:this={seach_input} />
+    <button
+      class="col-1 btn btn-primary"
+      style="margin-left: 8px;"
+      on:click={clickSearch}>
+      搜索
+    </button>
+  </div>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>姓名</th>
-      <th>号码</th>
-      <th>职业</th>
-      <th>备注</th>
-      <th>操作</th>
-    </tr>
-  </thead>
-  <tbody id="tbody">
-    {#each list as item, idx (idx)}
-      <tr>
-        <td>{item.get('username')}</td>
-        <td>{item.get('phone')}</td>
-        <td>{item.get('profession')}</td>
-        <td>{item.get('remind')}</td>
-        <td>
-          <div class="btn-group">
-            <button
-              type="button"
-              class="btn btn-primary"
-              data-toggle="modal"
-              data-target="#edit_modal"
-              on:click={e => preEdit(item, idx)}>
-              编辑
-            </button>
-            <button class="btn btn-danger" on:click={e => del(item, idx)}>
-              删除
-            </button>
-          </div>
-        </td>
-      </tr>
-    {/each}
-  </tbody>
-</table>
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>姓名</th>
+          <th>号码</th>
+          <th>职业</th>
+          <th>备注</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+        {#each list as item, idx (item.id)}
+          <tr>
+            <td>{item.get('username')}</td>
+            <td>{item.get('phone')}</td>
+            <td>{item.get('profession')}</td>
+            <td>{item.get('remind')}</td>
+            <td>
+              <div class="btn-group">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-toggle="modal"
+                  data-target="#edit_modal"
+                  on:click={e => preEdit(item, idx)}>
+                  编辑
+                </button>
+                <button class="btn btn-danger" on:click={e => del(item, idx)}>
+                  删除
+                </button>
+              </div>
+            </td>
+          </tr>
+        {/each}
+      </tbody>
+    </table>
+  </div>
+</main>
 
 <!-- 模态框 -->
 <div class="modal fade" id="edit_modal">
