@@ -4,8 +4,7 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "HOST=0.0.0.0 sirv public",
-    "start_single": "HOST=0.0.0.0 sirv public --single"
+    "start": "HOST=0.0.0.0 sirv public"
   },
   "devDependencies": {
     "rollup": "^1.32.1",
