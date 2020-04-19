@@ -155,28 +155,28 @@
   <div class="row my-1">
     <button
       type="button"
-      class="col-1 btn btn-primary"
+      class="col-md-1 col-2 btn btn-primary"
       data-toggle="modal"
       data-target="#edit_modal"
       on:click={preAdd}>
       新增
     </button>
     <button
-      class="col-1 btn btn-warning"
+      class="col-md-1 col-2 btn btn-warning"
       style="margin-left: 8px;"
       on:click={logout}>
       退出
     </button>
-    <span class="col-2 row justify-content-center align-items-center">
+    <span class="col-md-1 col-4 row justify-content-center align-items-center">
       {list_count_content}
     </span>
     <input
-      class="col-2 form-control"
+      class="col-md-2 col-4 form-control"
       placeholder="搜索内容"
       on:keypress={changeSearchInput}
       bind:this={seach_input} />
     <button
-      class="col-1 btn btn-primary"
+      class="col-1 btn btn-primary d-none d-md-block"
       style="margin-left: 8px;"
       on:click={clickSearch}>
       搜索
